@@ -1,0 +1,105 @@
+# Разрешаем пользователям заливать файлы не больше 8Мб
+client_max_body_size 8M;
+
+# Далее стандартный конфиг для OctoberCMS с официального сайта
+
+index index.php;
+if ($request_uri ~* "^(.*/)index\.(?:php|html)$") {
+    return 301 $1;
+}
+
+location / {
+    rewrite ^/.*$ /index.php last;
+}
+
+location ~ ^/index.php {
+    include snippets/fastcgi-php.conf;
+    # Тут в зависимости от версии указываем сокет (у нас 7.4)
+    fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
+    fastcgi_read_timeout 300;
+}
+
+location ~ ^/(.*\.(ac3|avi|bmp|bz2|css|cue|dat|doc|docx|dts|exe|flv|gif|gz|html|ico|img|iso|jpeg|jpg|js|mkv|mp3|mp4|mpeg|mpg|ogg|pdf|png|ppt|pptx|qt|rar|rm|swf|tar|tgz|txt|wav|xls|xlsx|zip|7z|svg|ttf|woff|woff2|eot))$ {
+    sendfile on;
+    access_log off;
+    expires max;
+}
+
+# Whitelist
+
+## Let October handle if static file not exists
+location ~ ^/favicon\.ico { try_files $uri /index.php; }
+location ~ ^/sitemap\.xml { try_files $uri /index.php; }
+location ~ ^/robots\.txt { try_files $uri /index.php; }
+location ~ ^/humans\.txt { try_files $uri /index.php; }
+location ~ ^/[0-9a-z]+.html { try_files $uri /index.php; }
+location ~ ^/[0-9a-z]+.tar.gz {try_files $uri /index.php; }
+
+## Let nginx return 404 if static file not exists
+location ~ ^/.well-known { try_files $uri 404; }
+location ~ ^/storage/app/uploads/public { try_files $uri 404; }
+location ~ ^/storage/app/media { try_files $uri 404; }
+location ~ ^/storage/temp/public { try_files $uri 404; }
+location ~ ^/storage/app/cropped { try_files $uri 404; }
+location ~ ^/storage/app/rss { try_files $uri 404; }
+location ~ ^/storage/app/collections { try_files $uri 404; }
+location ~ ^/modules/.*/assets { try_files $uri 404; }
+location ~ ^/modules/.*/resources { try_files $uri 404; }
+location ~ ^/modules/.*/behaviors/.*/assets { try_files $uri 404; }
+location ~ ^/modules/.*/behaviors/.*/resources { try_files $uri 404; }
+location ~ ^/modules/.*/widgets/.*/assets { try_files $uri 404; }
+location ~ ^/modules/.*/widgets/.*/resources { try_files $uri 404; }
+location ~ ^/modules/.*/formwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/modules/.*/formwidgets/.*/resources { try_files $uri 404; }
+location ~ ^/modules/.*/reportwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/modules/.*/reportwidgets/.*/resources { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/assets { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/resources { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/behaviors/.*/assets { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/behaviors/.*/resources { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/reportwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/reportwidgets/.*/resources { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/formwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/formwidgets/.*/resources { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/widgets/.*/assets { try_files $uri 404; }
+location ~ ^/plugins/.*/.*/widgets/.*/resources { try_files $uri 404; }
+location ~ ^/themes/.*/assets { try_files $uri 404; }
+location ~ ^/themes/.*/resources { try_files $uri 404; }
+
+# Можно включить сжатие (бывает полезным)
+gzip on;
+gzip_disable "msie6";
+gzip_types
+application/atom+xml
+application/javascript
+text/javascript
+application/json
+application/ld+json
+application/manifest+json
+application/rss+xml
+application/vnd.geo+json
+font/ttf
+application/x-font-ttf
+application/vnd.ms-fontobject
+application/font-woff
+application/font-woff2
+application/x-web-app-manifest+json
+application/xhtml+xml
+application/xml
+font/opentype
+image/bmp
+image/svg+xml
+image/x-icon
+text/cache-manifest
+text/css
+text/plain
+text/vcard
+text/vnd.rim.location.xloc
+text/vnd.wap.wml
+text/vtt
+text/x-component
+text/x-cross-domain-policy;
+gzip_comp_level 6;
+gzip_vary on;
+gzip_static off;
+gzip_proxied any;

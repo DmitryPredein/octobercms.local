@@ -1,0 +1,65 @@
+<div class="conteiner_stat">
+    <div class="stat_master-master" id="masterstatwidgetmaster">
+        <?= $this->makePartial('masterstatwidgetmaster') ?>
+    </div>
+    
+    <?php if ($user->hasAccess('predeindmitry.masterstat.some_permission.admin')): ?>
+        <div class="stat_master-admin">
+            <h3>Админка</h3>
+            
+            <div class="form-group span-left">
+                <label>Выберите мастера</label>
+                <select class="form-control" id="selectMaster">
+                    <option>-</option>
+                    <?php
+                        foreach($masterArray as $value){
+                            echo("<option>$value</option>");
+                        }
+                    ?>
+                </select>
+            </div>
+            <button
+                    class="btn btn-primary"
+                    id="closeStat"
+                    type="button"
+                    disabled="disabled">
+                    Выдать
+            </button>
+            
+            
+            <div class="form-group span-left">
+                <label>Штраф</label>
+                <input
+                    class="form-control"
+                    id="penalty"
+                    type="text"
+                    disabled="disabled">
+            </div>
+            
+            <button
+                    class="btn btn-danger"
+                    id="donePenalty"
+                    type="button"
+                    disabled="disabled">
+                    Назначить штраф
+            </button>
+            
+            <div class="form-group span-left">
+                <label>Процент</label>
+                <input
+                    class="form-control"
+                    id="precent"
+                    type="text"
+                    disabled="disabled">
+            </div>
+            
+            <button
+                    class="btn btn-danger"
+                    id="donePrecent"
+                    type="button"
+                    disabled="disabled">
+                    Назначить процент
+            </button>
+        </div>
+    <?php endif ?>
+</div>

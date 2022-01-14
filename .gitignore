@@ -1,0 +1,8 @@
+syntax: glob
+
+config/app.php
+config/database.php
+storage/logs/system.log
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/cms/cache/*

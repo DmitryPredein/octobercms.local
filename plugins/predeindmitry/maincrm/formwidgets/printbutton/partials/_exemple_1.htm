@@ -1,0 +1,87 @@
+<style>
+    .payment_method_radio_layauts{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .payment_method_radio_layauts label{
+        margin: 5px;
+    }
+    .payment_method_text_layauts{
+        margin: 10px 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .payment_method_text_layauts > div{
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+</style>
+<div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Выберите способ оплаты</h4>
+        </div>
+        <div class="modal-body">
+            <div class="payment_method">
+                <div class="payment_method_radio_layauts">
+                    <label><input type="radio" name="radio" value="Наличные">Наличные</label>
+                    <label><input type="radio" name="radio" value="Безналичный">Безналичный</label>
+                    <label><input id="multiPay" type="radio" name="radio" value="Смешаное">Смешаное</label>
+                </div>
+
+
+                <div class="payment_method_text_layauts" style="display:none">
+                    <div><label for="besnalId">Безнал</label><input id="besnalId" class="form-control" type="text" name="besnal"></div>
+                    <div><label for="nalId">Нал</label><input id="nalId" class="form-control" type="text" name="nal"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button
+                data-control="popup"
+                data-handler="<?= $this->getEventHandler('onLoadContentPrintFinal') ?>"
+                data-size="huge"
+                data-dismiss="popup"
+                class="btn btn-primary btn-lg buttonPay">
+                Акт выполненых работ
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+$('.payment_method_radio_layauts > label > input[name="radio"]').click(function(){
+	let target = $(this).val();
+
+    if(target == 'Смешаное'){
+        $(".payment_method_text_layauts").fadeIn(200);
+    }
+    else{
+        $(".payment_method_text_layauts").hide(200);
+        $(".buttonPay").attr("data-request-data", "besnal: '0', nal: '0', target: '"+target+"'");
+
+    }
+});
+
+    $('.payment_method_text_layauts > div > input').blur(function(){
+        let cost = "<?= $cost?>";
+        if($(this).attr('id') == 'besnalId'){
+          $("#nalId").val(cost - $(this).val());
+        }
+        else if ($(this).attr('id') == 'nalId') {
+          $("#besnalId").val(cost - $(this).val());
+        }
+        let target = $("#multiPay").val();
+        let besnal = $("#besnalId").val();
+        let nal = $("#nalId").val();
+        $(".buttonPay").attr("data-request-data", "besnal: '"+besnal+"', nal: '"+nal+"', target: '"+target+"'");
+        
+    });
+
+</script>

@@ -1,0 +1,19 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    detail_name:
+        label: Наименование детали
+        type: text
+        span: left
+        required: true
+
+    detail_cost:
+        label: Стоимость
+        type: text
+        span: right
+        required: true

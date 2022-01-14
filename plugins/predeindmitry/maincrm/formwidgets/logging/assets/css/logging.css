@@ -1,0 +1,12 @@
+/*
+ * This is a sample StyleSheet file used by Logging
+ *
+ * You can delete this file if you want
+ */
+.LoggingItem{
+    font-size: 15px;
+}
+.logging-layauts{
+    height: 330px;
+    overflow-y: scroll;
+}

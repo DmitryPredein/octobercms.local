@@ -1,0 +1,19 @@
+1.0.1:
+  - Run plugin table migrations
+  - create_jobs_table.php
+  - create_devicemodels_table.php
+  - create_customers_table.php
+  - create_employees_table.php
+  - create_details_table.php
+  - create_detailjobs_table.php
+  - create_jobservices_table.php
+  - create_money_table.php
+  - create_stocks_table.php
+  - create_jobstocks_table.php
+  - create_receipts_table.php
+1.0.2:
+  - Run plugin table migrations
+  - create_services_table.php
+1.0.4:
+  - Run plugin table migrations
+  - create_message_logs_table.php

@@ -1,0 +1,17 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    type_device:
+        label: Тип устройства
+        searchable: true
+    brand_device:
+        label: Брэнд
+        searchable: true
+    devicemodel:
+        label: Модель
+        searchable: true

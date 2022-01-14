@@ -1,0 +1,7 @@
+    <div class="logging-layauts">
+        <?php
+            foreach($loggingArray as $value){
+                echo("<div class='LoggingItem'>".$value['logging']." [".$value['created_at']."]</div><br />");
+            }
+        ?>
+    </div>

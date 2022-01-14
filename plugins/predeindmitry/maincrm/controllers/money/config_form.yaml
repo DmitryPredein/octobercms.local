@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Money
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/money/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Money
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/money
+
+# Create page
+create:
+    title: Create Money
+    redirect: predeindmitry/maincrm/money/update/:id
+    redirectClose: predeindmitry/maincrm/money
+
+# Update page
+update:
+    title: Edit Money
+    redirect: predeindmitry/maincrm/money
+    redirectClose: predeindmitry/maincrm/money
+
+# Preview page
+preview:
+    title: Preview Money

@@ -1,0 +1,14 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    stock:
+        label: Склад
+        searchable: true
+    stock_address:
+        label: Адрес
+        searchable: true
+    schedule:
+        label: График
+        searchable: true

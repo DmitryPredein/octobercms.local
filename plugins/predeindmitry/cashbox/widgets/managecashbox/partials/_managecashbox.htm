@@ -1,0 +1,41 @@
+<div class="conteiner_manage_cashbox">
+    <div class="conteiner_manage_cashbox_tabl">
+        <?= $this->makePartial('managecashbox_tabl'); ?>
+    </div>
+    
+    <div class="conteiner_manage_cashbox_admin">
+        <h3>Админка кассы</h3>
+        <div class="form-group span-left">
+            <label>Выберите склад</label>
+            <select class="form-control" id="selectStock">
+                <option>-</option>
+                <?php
+                    foreach($stockArray as $value){
+                        echo("<option>$value</option>");
+                    }
+                ?>
+            </select>
+        </div>
+		<div class="form-group span-right">
+            <label>Выберите нал/безнал</label>
+            <select class="form-control" id="selectPayType">
+                <option selected >-</option>
+                <option value="1">Нал</option>
+				<option value="2">Безнал</option>
+            </select>
+        </div>
+        <div class="form-group span-left">
+            <label>Сумма</label>
+            <input type="text" id="sum" name="" value="" class="form-control" disabled="disabled" />
+        </div>
+    
+        <div class="form-group span-right">
+            <label>Коммент.</label>
+            <input type="text" id="komment" name="" value="" class="form-control" disabled="disabled" />
+        </div>
+        <button class="btn btn-default icon-plus" id="plus-request" type="submit" disabled="disabled"></button>
+        <button class="btn btn-default icon-minus" id="minus-request" type="submit" disabled="disabled"></button>
+        <button class="btn btn-default" type="submit" disabled="disabled">Что то не понятное</button>
+    </div>
+</div>
+

@@ -1,0 +1,4 @@
+1.0.1: First version of Cashbox
+2.0.2:
+  - create_cashbox_axmobis_table.php
+  - create_cashbox_histories_table.php

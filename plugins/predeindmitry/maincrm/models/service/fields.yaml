@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    service_name:
+        label: Наименование услуги
+        type: text
+        span: left
+        required: true
+    service_model:
+        label: Модель устройства
+        type: text
+        span: right
+    service_cost:
+        label: Стоимость
+        type: text
+        span: left
+    service_time:
+        label: Время
+        type: text
+        span: right

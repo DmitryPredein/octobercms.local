@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Devicemodel
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/devicemodel/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Devicemodel
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/devicemodel
+
+# Create page
+create:
+    title: Create Devicemodel
+    redirect: predeindmitry/maincrm/devicemodel/update/:id
+    redirectClose: predeindmitry/maincrm/devicemodel
+
+# Update page
+update:
+    title: Edit Devicemodel
+    redirect: predeindmitry/maincrm/devicemodel
+    redirectClose: predeindmitry/maincrm/devicemodel
+
+# Preview page
+preview:
+    title: Preview Devicemodel

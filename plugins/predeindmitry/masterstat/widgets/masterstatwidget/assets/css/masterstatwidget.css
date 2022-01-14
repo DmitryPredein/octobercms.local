@@ -1,0 +1,38 @@
+.conteiner_stat{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.stat_master-master{
+    flex-basis: 600px;
+}
+.stat_master-master > h3{
+    margin-left: 10px;
+}
+.stat_master-master .control-list {
+    margin-bottom: 0;
+}
+.stat_master-master .control-list table.table.data {
+    border: 1px solid #d4d8da;
+    border-top: none;
+}
+.stat_master-admin{
+    flex-basis: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.stat_master-admin > h3{
+    width: 100%;
+}
+@media (max-width:640px) {
+    .stat_master-master .control-list table.table.data {
+        border: none;
+    }
+    .conteiner_stat{
+        margin-bottom: 0;
+    }
+}

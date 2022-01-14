@@ -1,0 +1,135 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    created_at:
+        label: Дата создания
+        searchable: true
+    updated_at:
+        label: Дата изменения
+        searchable: true
+
+    #Шапка
+    logo:
+        label: Лого
+    menu:
+        label: Пункты меню
+    tel:
+        label: Телефон
+    label_tel:
+        label: Надпись телефона
+            
+    #Первый экран
+    label_descriptor:
+        label: Заголовок первого экрана
+    description_descriptor:
+        label: Описание первого экрана
+    label_button_descriptor:
+        label: Загловок для кнопки в первом экране
+    img_descriptor:
+        label: Картинка для первого экрана
+    img_back_descriptor:
+        label: Картинка для фона первого экрана
+                 
+    #Прочее
+    color_back_button:
+        label: Цвет фона для кнопок
+    color_back_secondary:
+        label: Второстепенный цвет фона
+    color_back_primary:
+        label: Основной цвет фона
+    color_fonts_ptimary:
+        label: Основной цвет текста
+    color_fonts_secondary:
+        label: Второстепенный цвет текста
+    color_fonts_button:
+        label: Цвет текста для кнопок
+    img_back_maincontent:
+        label: Картинка на основном фоне
+    img_arrow_up:
+        label: Стрелка вверх
+    img_back_model1:
+        label: Модель1 телефона на фоне
+    img_back_model2:
+        label: Модель2 телефона на фоне
+    img_arrow_left_slider1:
+        label: Картинка для стрелки влево(слайдер1)
+    img_arrow_right_slider1:
+        label: Картинка для стрелки вправо(слайдер1)
+        
+    #Раздел "Как мы работаем?"
+    label_slider2:
+        label: Заголовок для сдайдера2
+        
+    #Список моделей
+    label_model:
+        label: Заголовок для списка моделей
+        
+    #Список услуг
+    label_price:
+        label: Заголовок для списка услуг
+    description_price:
+        label: Описание для списка услуг
+    label_item_selectedtypedevice:
+        label: Заголовки пунктов раздела выбора типа девайса
+    img_item_selectedtypedevice:
+        label: Картинки для пунктов раздела выбора типа девайса
+        
+    #Раздел со статистикой
+    description_stat:  
+        label: Описание хз как назвать
+    label_stat:  
+        label: Заголовок для статистики
+    value_stat:  
+        label: Число для статистики
+            
+    #Первая форма 
+    label_homeOrder:
+        label: Заголовок для раздела с формы(Забрать из дома) 
+    description_homeOrder:
+        label: Описание для раздела с формы(Забрать из дома)
+    img_back_homeOrder:
+        label: Картинка на фоне формы(Забрать из дома)
+    placeholder_form_name_homeOrder:
+        label: Затенённый текст для формы(Забрать из дома) с именем
+    placeholder_form_tel_homeOrder:
+        label: Затенённый текст для формы(Забрать из дома) с телефон
+    label_form_button_homeOrder:
+        label: Заголовок для кнопки "Отправить" в форме(Забрать из дома)
+        
+    #Отзывы
+    label_feedback:
+        label: Заголовок раздела с отзывами
+    img_user_item_feedback:
+        label: Иконки для юзеров оставивших отзыв
+        
+    #Вторая форма 
+    label_homeOrder2:
+        label: Заголовок для раздела с формы(Консультация) 
+    description_homeOrder2:
+        label: Описание для раздела с формы(Консультация)
+    img_back_homeOrder2:
+        label: Картинка на фоне формы(Консультация)
+    placeholder_form_name_homeOrder2:
+        label: Затенённый текст для формы(Консультация) с именем
+    placeholder_form_tel_homeOrder2:
+        label: Затенённый текст для формы(Консультация) с телефон
+    label_form_button_homeOrder2:
+        label: Заголовок для кнопки "Отправить" в форме(Консультация)
+        
+    #Оферта
+    label_offer:
+        label: Заголовок оферты
+    description_offer:
+        label: Текст офферты
+        
+            
+    #Подвал
+    label1_footer:
+        label: Первый текст в подвале
+    label2_footer:
+        label: Второй текст в подвале

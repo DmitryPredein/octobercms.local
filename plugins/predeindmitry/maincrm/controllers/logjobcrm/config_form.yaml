@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Log Job C R M
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/logjobcrm/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\LogJobCRM
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/logjobcrm
+
+# Create page
+create:
+    title: Create Log Job C R M
+    redirect: predeindmitry/maincrm/logjobcrm/update/:id
+    redirectClose: predeindmitry/maincrm/logjobcrm
+
+# Update page
+update:
+    title: Edit Log Job C R M
+    redirect: predeindmitry/maincrm/logjobcrm
+    redirectClose: predeindmitry/maincrm/logjobcrm
+
+# Preview page
+preview:
+    title: Preview Log Job C R M

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Customer
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/customer/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Customer
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/customer
+
+# Create page
+create:
+    title: Create Customer
+    redirect: predeindmitry/maincrm/customer/update/:id
+    redirectClose: predeindmitry/maincrm/customer
+
+# Update page
+update:
+    title: Edit Customer
+    redirect: predeindmitry/maincrm/customer
+    redirectClose: predeindmitry/maincrm/customer
+
+# Preview page
+preview:
+    title: Preview Customer

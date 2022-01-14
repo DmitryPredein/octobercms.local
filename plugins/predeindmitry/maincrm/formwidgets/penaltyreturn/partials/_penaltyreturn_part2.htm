@@ -1,0 +1,25 @@
+<div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h5>Является ли запчать возвратной на склад</h5>
+        </div>
+        <div class="modal-footer">
+            <button
+                data-dismiss="popup"
+                class="btn btn-success">
+                Да
+            </button>
+            <button
+                data-control="popup"
+                data-handler="<?= $this->getEventHandler('onPenaltyReturnPart3') ?>"
+                data-size="small"
+                data-dismiss="popup"
+                class="btn btn-danger">
+                Нет
+            </button>
+        </div>
+    </div>
+</div>

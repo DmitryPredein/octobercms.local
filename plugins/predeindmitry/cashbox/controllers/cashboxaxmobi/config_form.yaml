@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Касса
+
+# Model Form Field configuration
+form: $/predeindmitry/cashbox/models/cashboxhistory/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\Cashbox\Models\CashboxHistory
+
+# Default redirect location
+defaultRedirect: predeindmitry/cashbox/cashboxaxmobi
+
+# Create page
+create:
+    title: Create Cashbox Axmobi
+    redirect: predeindmitry/cashbox/cashboxaxmobi/update/:id
+    redirectClose: predeindmitry/cashbox/cashboxaxmobi
+
+# Update page
+update:
+    title: Edit Cashbox Axmobi
+    redirect: predeindmitry/cashbox/cashboxaxmobi
+    redirectClose: predeindmitry/cashbox/cashboxaxmobi
+
+# Preview page
+preview:
+    title: Просмотр записи кассы

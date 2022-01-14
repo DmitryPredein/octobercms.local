@@ -1,0 +1,29 @@
+.conteiner_manage_cashbox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.conteiner_manage_cashbox_tabl{
+    flex-basis: 600px;
+}
+.conteiner_manage_cashbox_tabl > h3{
+    margin-left: 10px;
+}
+.conteiner_manage_cashbox_tabl .control-list {
+    margin-bottom: 0;
+}
+.conteiner_manage_cashbox_tabl .control-list table.table.data {
+    border: 1px solid #d4d8da;
+    border-top: none;
+}
+.conteiner_manage_cashbox_admin{
+    flex-basis: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.conteiner_manage_cashbox_admin > h3{
+    width: 100%;
+}

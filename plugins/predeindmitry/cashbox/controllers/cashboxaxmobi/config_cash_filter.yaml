@@ -1,0 +1,12 @@
+scopes:
+     DataFilter:
+        label: Дата
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+     ScopeStock:
+        label: Склад
+        type: group
+        conditions: stock in (:filtered)
+        options:
+            Склад 1: Склад 1
+            Склад 2: Склад 2

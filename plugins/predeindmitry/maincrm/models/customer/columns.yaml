@@ -1,0 +1,20 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: ФИО
+        searchable: true
+    tel:
+        label: Номер телефона
+        searchable: true
+    address:
+        label: Адрес
+        searchable: true
+    mail:
+        label: Почта
+        searchable: true

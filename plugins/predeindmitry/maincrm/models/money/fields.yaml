@@ -1,0 +1,37 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    cashbox_name:
+        label: Касса
+        type: text
+        span: full
+        required: true
+    replenishment:
+        label: Пополнение
+        type: text
+        span: left
+        required: true
+    expenses:
+        label: Расходы
+        type: text
+        span: right
+        required: true
+    salary:
+        label: Выплата зарплаты
+        type: text
+        span: full
+        required: true
+    add_money:
+        label: Поступление денег с заявки
+        type: text
+        span: left
+    status_admission:
+        label: Статус поступления
+        type: dropdown
+        span: right
+        options:
+            adopted: Принят
+            in_the_process: В процессе
+            done: Выполнено

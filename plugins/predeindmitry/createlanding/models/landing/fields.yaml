@@ -1,0 +1,402 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+
+fields:
+    id:
+        label: Номер шаблона
+        disabled: true
+    created_at:
+        label: Дата создания
+        disabled: true
+    updated_at:
+        label: Дата изменения
+        disabled: true
+    demonstracia:
+        lavel: Демонстрация
+        type: demonstracia
+tabs:
+    defaultTab: Меню
+    lazy:
+        - Меню
+        - Первый экран
+        - Слайдер1
+        - Раздел "Как мы работаем?"
+        - Список моделей
+        - Список услуг
+        - Раздел с активной информацией
+        - Раздел со статистикой
+        - Первая форма
+        - Отзывы
+        - Вторая форма
+        - Оферта
+        - Меню в подвале
+        - Подвал
+        - Общее
+    fields:
+
+        #Прочее
+        color_back_button:
+            label: Цвет фона для кнопок
+            type: colorpicker
+            tab: Общее
+            commentAbove: Цвет всех кнопок сайта
+        color_back_secondary:
+            label: Второстепенный цвет фона
+            type: colorpicker
+            tab: Общее
+            commentAbove: Цвет фона для элементов раздела таких как модель телефна или карточка с услугой
+        color_back_primary:
+            label: Основной цвет фона
+            type: colorpicker
+            tab: Общее
+            commentAbove: Преобладающий цвет фона для разделов на сайте не имещих картинок на бэках
+        color_fonts_ptimary:
+            label: Основной цвет текста
+            type: colorpicker
+            tab: Общее
+            commentAbove: Цвет главного текста(Заголовки, названия, цены и тд)
+        color_fonts_secondary:
+            label: Второстепенный цвет текста
+            type: colorpicker
+            tab: Общее
+            commentAbove: Цвет второстепенного текста(Примечания, пояснительные описания полей и тд)
+        color_fonts_button:
+            label: Цвет текста для кнопок
+            type: colorpicker
+            tab: Общее
+            commentAbove: Цвет текста для всех кнопок
+        img_back_maincontent:
+            label: Картинка на основном фоне
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Общее
+        img_arrow_up:
+            label: Стрелка вверх
+            type: mediafinder
+            mode: image
+            span: right
+            tab: Общее
+            commentAbove: Стрелка для "скачка" к шапке сайта
+        img_back_model1:
+            label: Модель1 телефона на фоне
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Общее
+            commentAbove: Затененная модель телефона на заднем фоне
+        img_back_model2:
+            label: Модель2 телефона на фоне
+            type: mediafinder
+            mode: image
+            span: right
+            tab: Общее
+            commentAbove: Затененная модель телефона на заднем фоне
+        img_arrow_left_slider1:
+            label: Картинка для стрелки влево
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Общее
+        img_arrow_right_slider1:
+            label: Картинка для стрелки вправо
+            type: mediafinder
+            mode: image
+            span: right
+            tab: Общее
+
+        #Шапка
+        menu:
+            label: Пункты меню
+            type: taglist
+            mode: array
+            tab: Меню
+        tel:
+            label: Контактный телефон
+            type: text
+            tab: Меню
+        label_tel:
+            label: Надпись "Позвонить мне"
+            type: text
+            tab: Меню
+            commentAbove: Надпись для обратного вызова
+        logo:
+            label: Лого
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Меню
+
+        #Первый экран
+        label_descriptor:
+            label: Заголовок первого экрана
+            type: text
+            tab: Первый экран
+        label_button_descriptor:
+            label: Загловок для кнопки в первом экране
+            type: text
+            tab: Первый экран
+        description_descriptor:
+            label: Описание первого экрана
+            type: textarea
+            size: tiny
+            tab: Первый экран
+        img_descriptor:
+            label: Картинка для первого экрана
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Первый экран
+        img_back_descriptor:
+            label: Картинка для фона первого экрана
+            type: mediafinder
+            mode: image
+            span: right
+            tab: Первый экран
+
+        #Слайдер с преимуществами
+        item_slider1:
+            label: Слайды
+            type: repeater
+            tab: Слайдер1
+            form:
+                fields:
+                    label_item_slider1:
+                        label: Название слайда
+                        type: text
+                    img_item_slider1:
+                        label: Картинка для слайда
+                        type: mediafinder
+                        mode: image
+
+        #Раздел "Как мы работаем?"
+        label_slider2:
+            label: Заголовок для раздела "Как мы работаем?"
+            type: text
+            tab: Как мы работаем?
+        item_slider2:
+            type: repeater
+            tab: Как мы работаем?
+            label: Слайды
+            form:
+                fields:
+                    description_item_slider2:
+                        label: Описание для слайда
+                        type: textarea
+                        size: tiny
+                    img_item_slider2:
+                        label: Картинка для слайда
+                        type: mediafinder
+                        mode: image
+
+        #Список моделей
+        label_model:
+            label: Заголовок для списка моделей
+            type: text
+            tab: Список моделей
+        item_model:
+            label: Модели
+            type: repeater
+            tab: Список моделей
+            form:
+                fields:
+                    label_item_model:
+                        label: Название модели
+                        type: text
+                    img_item_model:
+                        label: Картинка для модели
+                        type: mediafinder
+                        mode: image
+
+        #Список услуг
+        label_price:
+            label: Заголовок для списка услуг
+            type: text
+            tab: Список услуг
+        description_price:
+            label: Описание для списка услуг
+            type: textarea
+            size: tiny
+            tab: Список услуг
+        item_selectedtypedevice:
+            label: Типы девайсов
+            type: repeater
+            tab: Список услуг
+            maxItems: 3
+            form:
+                fields:
+                    label_item_selectedtypedevice:
+                        label: Тип девайса
+                        type: text
+                    img_item_selectedtypedevice:
+                        label: Картинка для типа девайса
+                        type: mediafinder
+                        mode: image
+        price_item:
+            label: Услуги
+            type: repeater
+            tab: Список услуг
+            form:
+                fields:
+                    label_price_item:
+                        label: Наименование услуги
+                        type: text
+                        span: left
+                    time_price_item:
+                        label: Время выполнения услуги
+                        type: text
+                        span: right
+                    cost_price_item:
+                        label: Стоимость услуги
+                        type: text
+
+
+
+        #Раздел "Инфо"
+        item_info:
+            label: Раздел с доп. информацией
+            commentAbove: Сюда входит раздел с разбором телефона, ссылкой на основной сайт и с контактным номером телефона
+            type: repeater
+            tab: Раздел с активной информацией
+            form:
+                fields:
+                    label_item_info:
+                        label: Заголовок для пункта раздела "Инфо"
+                        type: text
+                    description_item_info:
+                        label: Описание для пункта раздела "Инфо"
+                        type: textarea
+                        size: tiny
+                    actionText_item_info:
+                        label: Активный текст для пункта раздела "Инфо"
+                        type: text
+
+        #Раздел со статистикой
+        label_stat:
+            label: Заголовок для статистики
+            type: text
+            tab: Раздел со статистикой
+        value_stat:
+            label: Число для статистики
+            type: text
+            tab: Раздел со статистикой
+        description_stat:
+            label: Описание хз как назвать
+            type: textarea
+            size: tiny
+            tab: Раздел со статистикой
+
+        #Первая форма
+        label_homeOrder:
+            label: Заголовок для раздела с формы(Забрать из дома)
+            type: text
+            tab: Первая форма
+        placeholder_form_name_homeOrder:
+            label: Затенённый текст для формы(Забрать из дома) с именем
+            type: text
+            span: left
+            tab: Первая форма
+        placeholder_form_tel_homeOrder:
+            label: Затенённый текст для формы(Забрать из дома) с телефон
+            type: text
+            span: right
+            tab: Первая форма
+        label_form_button_homeOrder:
+            label: Заголовок для кнопки "Отправить" в форме(Забрать из дома)
+            type: text
+            tab: Первая форма
+        description_homeOrder:
+            label: Описание для раздела с формы(Забрать из дома)
+            type: textarea
+            size: tiny
+            tab: Первая форма
+        img_back_homeOrder:
+            label: Картинка на фоне формы(Забрать из дома)
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Первая форма
+
+        #Отзывы
+        label_feedback:
+            label: Заголовок раздела с отзывами
+            type: text
+            tab: Отзывы
+        img_user_item_feedback:
+            label: Иконки для юзеров оставивших отзыв
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Отзывы
+        item_feedback:
+            type: repeater
+            tab: Отзывы
+            form:
+                fields:
+                    name_user_item_feedback:
+                        label: Имя пользователя оставившего отзыв
+                        type: text
+                    description_user_item_feedback:
+                        label: Текст отзыва
+                        type: textarea
+                        size: tiny
+
+        #Вторая форма
+        label_homeOrder2:
+            label: Заголовок для раздела с формы(Консультация)
+            type: text
+            tab: Вторая форма
+        placeholder_form_name_homeOrder2:
+            label: Затенённый текст для формы(Консультация) с именем
+            type: text
+            span: left
+            tab: Вторая форма
+        placeholder_form_tel_homeOrder2:
+            label: Затенённый текст для формы(Консультация) с телефон
+            type: text
+            span: right
+            tab: Вторая форма
+        label_form_button_homeOrder2:
+            label: Заголовок для кнопки "Отправить" в форме(Консультация)
+            type: text
+            tab: Вторая форма
+        description_homeOrder2:
+            label: Описание для раздела с формы(Консультация)
+            type: textarea
+            size: tiny
+            tab: Вторая форма
+        img_back_homeOrder2:
+            label: Картинка на фоне формы(Консультация)
+            type: mediafinder
+            mode: image
+            span: left
+            tab: Вторая форма
+
+        #Оферта
+        label_offer:
+            label: Заголовок оферты
+            type: text
+            tab: Оферта
+        description_offer:
+            label: Текст офферты
+            type: textarea
+            size: tiny
+            tab: Оферта
+
+        #Подвал
+        label1_footer:
+            label: Первый текст в подвале
+            type: textarea
+            size: tiny
+            span: left
+            tab: Подвал
+        label2_footer:
+            label: Второй текст в подвале
+            type: textarea
+            size: tiny
+            span: right
+            tab: Подвал
+
+

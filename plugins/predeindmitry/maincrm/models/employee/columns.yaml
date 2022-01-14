@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: ФИО
+        searchable: true
+    position:
+        label: Должность
+        searchable: true
+

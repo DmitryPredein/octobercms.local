@@ -1,0 +1,28 @@
+        <div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Укажите причину</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input id="garant" class="form-control" type="text" value=""/><br />
+                        <h5 class=""><?= $checkGarantAgaint?><a href="https://axmobycms.ru/backend/predeindmitry/maincrm/jobclosegarant/update/<?= $nameCheckJobGarantId?>"><?= $nameCheckJobGarantId?></a></h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button disabled="disabled" id="garantRequest" class="btn btn-primary" data-request="<?= $this->getEventHandler('onGarantJob') ?>">Создать</button>
+                    </div>
+                </div>
+                <script>
+                        $('#garant').on('input', function(){
+                                if($(this).val()){
+                                        $('#garantRequest').removeAttr('disabled');
+                                        $('#garantRequest').attr("data-request-data", "garantnote: '"+$(this).val()+"'");
+                                }
+                                else{
+                                        $('#garantRequest').attr('disabled', 'disabled');
+                                        $('#garantRequest').removeAttr('data-request-data');
+                                }
+                                                    
+                        });
+                </script>
+        </div>  

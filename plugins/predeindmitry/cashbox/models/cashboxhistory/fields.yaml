@@ -1,0 +1,30 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    created_at:
+        label: Дата
+    user:
+        label: Пользователь
+        span: left
+    komment:
+        label: Комментарий
+        span: right
+    nal:
+        label: +Наличные
+        span: left
+    beznal:
+        label: +Безнал
+        span: right
+    return_nal:
+        label: -Возвраты(нал)
+    return_beznal:
+        label: -Возвраты(безнал)
+    expenses:
+        label: -Разходы
+    stock:
+        label: Склад

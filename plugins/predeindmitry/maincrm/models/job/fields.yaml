@@ -1,0 +1,294 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+fields:
+    is_status:
+        type: balloon-selector
+        cssClass: widthminChekBox ChekBoxis
+        default: none
+        options:
+            is_soglasovano: Согласовано
+            is_nedosvonilsya: Недозвонился
+            is_peresvonit: Перезвонить
+            is_not_remont: Отказался ремонтировать
+            is_remont_not_axmobi: Отремонтировал в другом месте
+            none: Отсутствуют
+    _histiry:
+        type: detailandworkandcost
+tabs:
+    lazy:
+        - Логи
+        - Чат
+    fields:
+        id:
+            label: ID
+            disabled: true
+            tab: Основная инфа
+            cssClass: widthminId
+        created_at:
+            label: Дата создания
+            disabled: true
+            tab: Основная инфа
+            cssClass: widthminDate
+        note:
+            label: Тип заявки
+            type: text
+            tab: Основная инфа
+            default: Ремонт
+            disabled: true
+            cssClass: widthminDate
+        manager@create:
+            label: Менеджер
+            type: dropdown
+            tab: Основная инфа
+            cssClass: widthminDate
+        manager@update:
+            label: Менеджер
+            type: dropdown
+            tab: Основная инфа
+            options: managerOptionsUpdate
+            cssClass: widthminDate
+        stock:
+            label: Склад
+            type: relation
+            nameFrom: stock
+            required: true
+            tab: Основная инфа
+            cssClass: widthminDate
+        is_warranty:
+            label: Гарантийность
+            type: text
+            readOnly: true
+            default:  Не гарантийный
+            tab: Основная инфа
+            cssClass: widthminDate
+        type_job:
+            label: Источник заказа
+            type: dropdown
+            required: true
+            options:
+                Заполнено на месте: Заполнено на месте
+                myax.ru: myax.ru
+                Звонок: Звонок
+                VK: VK
+                WhatsApp: WhatsApp
+                Лендинг: Лендинг
+            tab: Основная инфа
+            cssClass: widthminDate
+        warranty:
+            label: Гарантия
+            type: text
+            tab: Документ
+            cssClass: widthminDate
+        cost:
+            label: Конечная стоимость
+            type: text
+            readOnly: true
+            tab: Документ
+            cssClass: widthminDate
+            dependsOn:
+                - work_done
+                - used_detail
+                - discount_work
+                - discount_details
+
+
+        name_id@create:
+            type: customnameselected
+            tab: Основная инфа
+            cssClass: widthmaxNameCreate
+            span: left
+        name_id@update:
+            type: customnameselected
+            tab: Основная инфа
+            cssClass: widthmaxNameUpdate
+            required: true
+            span: left
+        master:
+            label: Мастер
+            type: recordfinder
+            list: ~/plugins/predeindmitry/maincrm/models/employee/columns.yaml
+            conditions: position = "Мастер"
+            prompt:
+            tab: Основная инфа
+            cssClass: widthminDate
+        orientir_cost:
+            label: Ориент. стоимость
+            type: text
+            tab: Основная инфа
+            cssClass: widthminDate
+        status_job:
+            label: Статус заказа
+            type: dropdown
+            required: true
+            cssClass: widthminDate
+            dependsOn:
+                - master
+            tab: Основная инфа
+
+        patternlock:
+            label: Графический ключ
+            type: patternlock
+            span: right
+            tab: Основная инфа
+            cssClass: widthminpatternlock
+
+        type_device:
+            label: Тип устройства
+            type: customdevice
+            default: Неизвестно
+            options: true
+            required: true
+            span: left
+            tab: Основная инфа
+            cssClass: widthminStock
+        brand_device:
+            label: Брэнд
+            type: customdevice
+            default: Неизвестно
+            options: true
+            required: true
+            cssClass: widthminDate
+            dependsOn:
+                - type_device
+            tab: Основная инфа
+        devicemodel:
+            label: Модель
+            type: customdevice
+            default: Неизвестно
+            options: true
+            required: true
+            cssClass: widthminDate
+            dependsOn:
+                - type_device
+                - brand_device
+            tab: Основная инфа
+        imei:
+            label: IMEI
+            type: text
+            tab: Основная инфа
+            cssClass: widthminDate
+        condition_device:
+            label: Состояние устройства
+            type: taglist
+            options:
+                Потертости: Потертости
+                Царапины: Царапины
+                Сколы: Сколы
+                Разбит: Разбит
+            tab: Основная инфа
+            cssClass: widthminCondition
+        pinkod:
+            label: Пароль
+            type: text
+            default: 'нет'
+            required: true
+            tab: Основная инфа
+            cssClass: widthminDate
+
+        descriptions:
+            label: Заявленная неисправность
+            type: Textarea
+            size: lazy
+            tab: Основная инфа
+            span: left
+            cssClass: exemple
+        notehzzahcem:
+            label: Примечание
+            type: Textarea
+            size: lazy
+            tab: Основная инфа
+            cssClass: exemple
+        discount_work:
+            label: Скидка на услуги
+            type: text
+            span: left
+            default: 0
+            tab: Документ
+            cssClass: exempleDiscount
+            comment: При указании "%" считается как процент при его отсутствии вычитается
+        _discount_work_fullcost:
+            label: Стоимость работ с учётом скидки
+            type: text
+            tab: Документ
+            disabled: true
+            cssClass: exempleDiscount
+            dependsOn:
+                - work_done
+                - discount_work
+        discount_details:
+            label: Скидка на запчасти
+            type: text
+            default: 0
+            tab: Документ
+            cssClass: exempleDiscount
+            comment: При указании "%" считается как процент при его отсутствии вычитается
+        _discount_details_fullcost:
+            label: Стоимость деталей с учётом скидки
+            type: text
+            tab: Документ
+            disabled: true
+            cssClass: exempleDiscount
+            dependsOn:
+                - used_detail
+                - discount_details
+
+        work_done:
+            type: repeater
+            label: Выполненые работы
+            span: left
+            tab: Документ
+            cssClass: exemple
+            form:
+                fields:
+                    work_done_label:
+                        label: Выполненные работы
+                        type: text
+                    work_done_cost:
+                        label: Стоимость
+                        type: text
+
+
+        used_detail:
+            type: repeater
+            label: Используемые детали
+            tab: Документ
+            cssClass: exemple
+            form:
+                fields:
+                    used_detail_label:
+                        label: Используемые детали
+                        type: text
+                    used_detail_cost:
+                        label: Стоимость
+                        type: text
+
+        print@update:
+            type: printbutton
+            cssClass: widthminPrint_job
+            tab: Документ
+            dependsOn:
+                - notehzzahcem
+                - descriptions
+
+        print_close@update:
+            type: printbuttonclose
+            tab: Документ
+            hidden: true
+
+        garant:
+            type: garantjob
+            span: left
+            hidden: true
+            cssClass: widthminPrint_job
+            tab: Документ
+
+        message_id@update:
+            type: messagelogformwidget
+            tab: Основная инфа
+            span: left
+
+        _logging@update:
+            type: logging
+            tab: Основная инфа
+            span: right

@@ -1,0 +1,17 @@
+<?php if ($check_garant == null): ?>
+
+    <button
+        type="button"
+        class="btn btn-primary oc-icon-refresh"
+        data-control="popup"
+        data-size="huge"
+        data-handler="<?= $this->getEventHandler('onOpenGarantJob') ?>"
+    >
+        Создать гарантийную заявку
+    </button>
+
+<?php else: ?>
+
+    <button disabled="disabled" class="btn btn-default oc-icon-refresh" type="button">Создать гарантийную заявку</button>
+
+<?php endif ?>

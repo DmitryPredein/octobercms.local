@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Detail
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/detail/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Detail
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/detail
+
+# Create page
+create:
+    title: Create Detail
+    redirect: predeindmitry/maincrm/detail/update/:id
+    redirectClose: predeindmitry/maincrm/detail
+
+# Update page
+update:
+    title: Edit Detail
+    redirect: predeindmitry/maincrm/detail
+    redirectClose: predeindmitry/maincrm/detail
+
+# Preview page
+preview:
+    title: Preview Detail

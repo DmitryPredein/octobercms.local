@@ -1,0 +1,103 @@
+<div class="layauts_stat-mobile" id="statisticMobileJsMaster" data-mw="hide">
+    Статистика
+</div>
+<div class="layauts_stat" id="statisticMwMobileJsMaster">
+    <div class="layauts_stat_margin">
+        <button
+            class="btn btn-primary"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Заявки с лендосов:', FilterJob: 'JobLanding'">
+            
+            Заявки с лендингов: <?= $JobLanding?>
+        </button>
+        <button
+            class="btn btn-primary"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Осталось выдать:', FilterJob: 'Job'">
+            Осталось выдать: <?= $Job?>
+        </button>
+        
+        <button
+            class="btn btn-primary"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Гарантийные заявки:', FilterJob: 'JobCloseGarant'">
+            Гарантийные заявки: <?= $JobCloseGarant?>
+        </button>
+        <button
+            class="btn btn-primary"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Всего в ремонте:', FilterJob: 'JobTotal'">
+            Всего в ремонте: <?= $JobTotal?>
+        </button>
+        
+        <button
+            class="btn btn-primary"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Принято сегодня:', FilterJob: 'JobCreateCount'">
+            Принято сегодня: <?= $JobCreateCount?>
+        </button>
+        <button
+            class="btn btn-primary"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Закрыто сегодня:', FilterJob: 'JobCloseCount'">
+            Закрыто сегодня: <?= $JobCloseCount?>
+        </button>
+        <button
+            class="btn btn-primary"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Myax.ru:', FilterJob: 'JobMyax'">
+            Myax.ru: <?= $JobMyax?>
+        </button>
+    </div>
+    <div class="layauts_stat_margin">
+        <button
+            class="btn btn-danger active"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Свободные заявки', FilterJob: 'JobFreeRemont'">
+            Свободные заявки: <?= $JobFreeMaster?>
+        </button>
+        <button
+            class="btn btn-danger active"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Апп. в ремонте >3дн.:', FilterJob: 'JobOnRemont'">
+            Апп. в ремонте >3дн.: <?= $JobOnRemont?>
+        </button>
+        <button
+            class="btn btn-danger active"
+            type="button"
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onStaticFilter') ?>"
+            data-size="giant"
+            data-request-data="nameFilter: 'Апп. готовые и не выданные >3дн.:', FilterJob: 'JobOnDone'">
+            Апп. готовые и не выданные >3дн.: <?= $JobOnDone?>
+        </button>
+
+    </div>
+</div>

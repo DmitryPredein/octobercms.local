@@ -1,0 +1,505 @@
+         <div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Демонстрация</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="themeIphone">
+                               <!-- Шапка -->
+                       
+                               <div class="bg_header">
+                               <header>
+                       
+                                   <div class="headerTop">
+                                   <!--<div class="collapseMenu"></div>-->
+                       
+                                   <div class="logo"></div>
+                       
+                                   <!--<div class="collapseContact"></div>-->
+                                   <div class="menu">
+                                       <ul>
+                                             <?php
+                                                      foreach($menu as $key => $value){
+                                                               echo("<li><a href='#".$value."'>".$value."</a></li>");
+                                                      }
+                                             ?>
+                                       </ul>
+                                   </div>
+                       
+                                   <div class="contact">
+                                       <span class="tel"><?= $tel?></span>
+                                       <div class="img_callback">
+                                       <div class="callback"><?= $label_tel?></div>
+                                       </div>
+                                   </div>
+                       
+                       
+                                   </div>
+                       
+                                   <div class="slicer">
+                                   <div class="title_slicer">
+                                       <h1><?= $label_descriptor?></h1>
+                                       <p><?= $description_descriptor?></p>
+                                       <input class="orderSubmit" type="submit" id="order" value="<?= $label_button_descriptor?>" name="NewJob">
+                                   </div>
+                                   <div class="img_slicer"></div>
+                                   </div>
+                       
+                               </header>
+                               </div>
+                       
+                               <!-- меню под шапкой-->
+                               <div class="bg_navBar">
+                               <nav class="navBar">
+                                   <ul class="sliderNavBar">
+                                    <?php
+                                             foreach($item_slider1 as $value){
+                                                      echo("<div>");
+                                                      echo("<li>");
+                                                      
+                                                      echo("<img class='img_navBar' src='https://axmobycms.ru/storage/app/media/".$value["img_item_slider1"]."'>");
+                                                      echo("<span>".$value["label_item_slider1"]."</span>");
+                                                      
+                                                      echo("</li>");
+                                                      echo("</div>");
+                                             }
+                                    ?>
+                                   </ul>
+                               </nav>
+                               </div>
+                       
+                               <!-- Основной контент -->
+                               <div class="bg_mainContent">
+                               <div class="bg_model1"></div>
+                               <div class="bg_model2"></div>
+                       
+                               <style>
+                       
+                               </style>
+                               <div class="mainContent">
+                                   <div class="faqMainContent">
+                                   <p>Как мы работаем?</p>
+                                   <section>
+                                       <div class="slider">
+                                             <?php
+                                                      foreach($item_slider2 as $key => $value){
+                                                               echo("<div>");
+                                                               echo("<div class='faqBox'>");
+                                                               echo("<div class='numberFaqBox'>0".($key+=1)."</div>");
+                                                               echo("<img class='img_faqBox' src='https://axmobycms.ru/storage/app/media/".$value["img_item_slider2"]."'>");
+                                                               echo("<span class='titleFaqBox'>".$value["description_item_slider2"]."</span>");
+                                                               echo("</div>");
+                                                               echo("</div>");
+                                                      }
+                                             ?>
+                                       </div>
+                                   </section>
+                                   </div>
+                       
+                                   <div class="modelMainContent" id="modelMainContentHref">
+                                   <p><?= $label_model?></p>
+                                   <section>
+                                       <?php
+                                             foreach($item_model as $value){
+                                                      echo("<div class='modelBox'>");
+                                                      echo("<span class='titleModelBox'>".$value["label_item_model"]."</span>");
+                                                      echo("<img src='https://axmobycms.ru/storage/app/media/".$value["img_item_model"]."' class='img_modelBox'>");
+                                                      echo("</div>");
+                                             }
+                                       ?>
+                                   </section>
+                                   </div>
+                       
+                       
+                                   <div class="priceMainContent" id="priceMainContentHref">
+                                   <p><?= $label_price?></p>
+                                   <p><?= $description_price?></p>
+                       
+                                   <div class="deviceSelected">
+                                       <div class="deviceSelectedImages deviceSelectedPhone deviceSelectedImagesActive" id="deviceSelectedPhoneId">
+                                       <div class="deviceSelectedPhone_img"></div>
+                                       <p class="titleDevice">Телефон</p>
+                                       </div>
+                                       
+                                       <div class="deviceSelectedImages deviceSelectedLaptop" id="deviceSelectedLaptopId">
+                                       <div class="deviceSelectedLaptop_img"></div>
+                                       <p class="titleDevice">Ноутбук</p>
+                                       </div>
+                                       
+                                       <div class="deviceSelectedImages deviceSelectedTablet" id="deviceSelectedTabletId">
+                                       <div class="deviceSelectedTablet_img"></div>
+                                       <p class="titleDevice">Планшет</p>
+                                       </div>
+                                       
+                                   </div>
+                       
+                                   <p class="modelCheck">Модель не выбрана</p>
+                       
+                                   <section>
+                       
+                                   </section>
+                                   <span class="svesda ">*Цены ориентировочные, зависят от стоимости запчасти и могут изменяться как в меньшую так и в большую сторону.</span>
+                                   </div>
+                       
+                       
+                                   <div class="infoMainContent">
+                                   <section>
+                                       <div class="infoBox">
+                                       <div class="titleInfoBox">
+                                           <span id="titleInfoBoxH1">Слишком сильные повреждения?</span>
+                                           <p>Сдайте ваше устройство на запчасти обратившись в наш сервис</p>
+                                           <div class="titleInfoBoxDestroy"><span>Разобрать на запчасти</span><div class="icon_infoBox1"></div></div>
+                                       </div>
+                                       <div class="img_infoBox1"></div>
+                                       </div>
+                                       <div class="infoBox">
+                                       <div class="titleInfoBox">
+                                           <p id="titleInfoBoxH1">Ознакомится с более точными ценами</p>
+                                           <span><div class="icon_infoBox2"></div>8 (343) 311-21-11</span>
+                                       </div>
+                                       <div class="img_infoBox2"></div>
+                                       </div>
+                                       <div class="infoBox">
+                                       <div class="img_infoBox3">
+                                       <div class="titleInfoBox">
+                                           <span id="titleInfoBoxH1">Покупайте запчасти онлайн</span>
+                                           <p>Комплектующие на различные девайсы прямо со склада</p>
+                                           <div onclick="location.href = 'https://axmobi.ru/'"><span>Посмотреть</span><div class="icon_infoBox1"></div></div>
+                                       </div>
+                                       </div>
+                                       </div>
+                                   </section>
+                                   </div>
+                       
+                               </div>
+                       
+                       
+                               <div class="recommendationsContent">
+                                   <section>
+                                   <span>
+                                       <?= $description_stat?>
+                                   </span>
+                                   <div class="quantityOrder">
+                                       <!--<span class="stat">Статистика</span>-->
+                                       <div class="level1">
+                                       <div class="level2">
+                                           <span> <?= $value_stat?></span>
+                                       </div>
+                                       </div>
+                                       <span class="titleQuantityOrder"> <?= $label_stat?></span>
+                                   </div>
+                                   </section>
+                               </div>
+                       
+                       
+                               <div class="img1_bg_homeOrder">
+                                   <div class="homeOrder">
+                                   <span><?= $label_homeOrder?></span>
+                                   <p><?= $description_homeOrder?></p>
+                                   <form class="homeOrderForm" action="index.html" method="post">
+                                       <input autocomplete="off" type="text" name="homeOrderFormName" placeholder="<?= $placeholder_form_name_homeOrder?>">
+                                       <input autocomplete="off" type="tel" name="homeOrderFormTel" placeholder="<?= $placeholder_form_tel_homeOrder?>">
+                                       <input type="button" name="homeOrderFormSubmit" id="homeOrderFormSubmitId homeOrderFormSubmit1" value="<?= $label_form_button_homeOrder?>">
+                                   </form>
+                                   </div>
+                               </div>
+                       
+                       
+                               <div class="bg_feedback">
+                                   <div class="feedback" id="feedbackHref">
+                                   <span><?= $label_feedback?></span>
+                                   <div class="feedbackCarousel">
+                                       <div class="trackComment">
+                                             <?php
+                                                      foreach($item_feedback as $value){
+                                                               echo("<div>");
+                                                               echo("<div class='comment'>");
+                                                               echo("<div class='img_user'></div>");
+                                                               echo("<span class='name_user'>".$value["name_user_item_feedback"]."</span>");
+                                                               echo("<p>".$value["description_user_item_feedback"]."</p>");
+                                                               echo("</div>");
+                                                               echo("</div>");
+                                                      }
+                                             ?>
+                                       </div>
+                                   </div>
+                                   </div>
+                               </div>
+                       
+                       
+                               <div class="img2_bg_homeOrder">
+                                   <div class="homeOrder">
+                                   <span><?= $label_homeOrder2?></span>
+                                   <p><?= $description_homeOrder2?></p>
+                                   <form class="homeOrderForm" action="index.html" method="post">
+                                       <input autocomplete="off" type="text" name="homeOrderFormName" placeholder="<?= $placeholder_form_name_homeOrder2?>">
+                                       <input autocomplete="off" type="tel" name="homeOrderFormTel" placeholder="<?= $placeholder_form_tel_homeOrder2?>">
+                                       <input type="button" name="homeOrderFormSubmit" id="homeOrderFormSubmitId homeOrderFormSubmit2" value="<?= $label_form_button_homeOrder2?>">
+                                   </form>
+                                   </div>
+                               </div>
+                       
+                       
+                               <div class="bg_litleFont">
+                                   <div class="litleFont">
+                                   <span>
+                                       <p><?= $label_offer?></p>
+                                       <p><?= $description_offer?></p>
+                                   </span>
+                                   </div>
+                               </div>
+                       
+                       
+                               <div class="bg_headerFut">
+                                   <header>
+                       
+                                   <div class="logo"></div>
+                                   <div class="menu">
+                                       <ul>
+                                             <?php
+                                                      foreach($menu as $key => $value){
+                                                               echo("<li><a href='#".$value."'>".$value."</a></li>");
+                                                      }
+                                             ?>
+                                       </ul>
+                                   </div>
+                       
+                                   <div class="contact">
+                                       <span class="tel"><div class="collapseContact"></div><?= $tel?></span>
+                                       <div class="img_callback">
+                                       <div class="callback"><?= $label_tel?></div>
+                                       </div>
+                                   </div>
+                       
+                                   </header>
+                               </div>
+                       
+                               <div class="bg_footer">
+                                   <div class="contacts" id="contactsHref">
+                                   <span class="contactsH1">Обратная связь</span>
+                       
+                                   <div class="contactsMap">
+                                       <div class="contactsAddress">
+                                       <b><span>Телефон:</span></b>
+                                       <a href="tel:89097013040">8-909-701-30-40</a>
+                                       </div>
+                                       <div class="contactsAddress">
+                                       <b><span>Адрес:</span></b>
+                                       <span>г. Екатеринбург ул. 8 марта 57</span>
+                                       </div>
+                                       <a href="https://yandex.ru/maps/-/CCQDYJdNdA" target="_blank">
+                                       <img class="imgMap" src="img/gmap1.png" alt="AXMOBI, ул.8 марта 57">
+                                       </a>
+                                   </div>
+                       
+                                   <div class="contactsMap">
+                                       <div class="contactsAddress">
+                                       <b><span>Телефон:</span></b>
+                                       <a href="tel:89068033040">8-906-803-30-40</a>
+                                       </div>
+                                       <div class="contactsAddress">
+                                       <b><span>Адрес:</span></b>
+                                       <span>г. Екатеринбург пр. Космонавтов 52</span>
+                                       </div>
+                                       <a href="https://yandex.ru/maps/-/CCQDYUB39C" target="_blank">
+                                       <img class="imgMap" src="img/gmap2.png" alt="AXMOBI, пр.Космонавтов 52">
+                                       </a>
+                                   </div>
+                       
+                                   <div class="socialContacts">
+                                       <div class="socialContactsItem">
+                                       <b><span>Мы в соцсетях:</span></b>
+                                       <div>
+                                           <a href="https://vk.com/axmobi_ru" target="_blank">
+                                           <img src="img/vk.png">
+                                           </a>
+                                           <a href="https://www.instagram.com/axmobi.ru/" target="_blank">
+                                           <img src="img/insta.png">
+                                           </a>
+                                       </div>
+                                       </div>
+                                       <div class="socialContactsItem">
+                                       <b><span>WhatsApp:</span></b>
+                                       <a href="tel:89097013040">8-909-701-30-40</a>
+                                       </div>
+                                       <div class="socialContactsItem">
+                                       <b><span>Почта</span></b>
+                                       <a href="mailto:remont@myax.ru">remont@myax.ru</a>
+                                       </div>
+                                   </div>
+                       
+                                   <div class="payMetodContacts">
+                                       <b><span>Принимаем к оплате:</span></b>
+                                       <div class="imgPayLayaut">
+                                       <img class="imgVisa" src="img/visa.png" width="58" height="19">
+                                       <img class="imgMastercard" src="img/mastercard.png">
+                                       <img class="imgSber" src="img/sber.png">
+                                       </div>
+                                   </div>
+                       
+                                   </div>
+                                   <footer>
+                                    <span><?= $label1_footer?></span>
+                                    <span><?= $label2_footer?></span>
+                                   </footer>
+                               </div>
+                               </div>
+                       
+                               <div class="popup-fade">
+                                   <div class="popup">
+                                   <div class="popup_title">
+                                       <div class="popup-close closes"></div>
+                                       <p>Заполните форму и с вами свяжутся в ближайшее время</p>
+                                   </div>
+                                       <form class="popup_form" id="popup_formId" action="">
+                                       <div class="popup_form_input"><label for="nameId">ВАШЕ ИМЯ:</label><input type="text" id="nameId" name="name"></div>
+                                       <div class="popup_form_input"><label for="telId">ВАШ ТЕЛЕФОН:</label><input type="text" id="telId" name="tel"></div>
+                                       <div class="popup_form_input popup_form_input_desc" style="display: none;">
+                                       <label for="telId">КОММЕНТАРИЙ (НЕОБЯЗАТЕЛЬНО):</label>
+                                       <input type="text" id="descId" name="desc" placeholder="Введите ваши пожелания">
+                                       </div>
+                       
+                                       <div class="popup_form_dropdown_loyaut" style="display: none;">
+                                       <div class="popup_form_dropdown">
+                                           <span>Техника:</span>
+                                           <select name="device">
+                                           <option selected disabled>Выберите тип устройства</option>
+                                           <option value="Телефон">Телефон</option>
+                                           <option value="Планшет">Планшет</option>
+                                           <option value="Ноутбук">Ноутбук</option>
+                                           </select>
+                                       </div>
+                                       <div class="popup_form_dropdown">
+                                           <span>Бренд:</span>
+                                           <p id="brandDropdown">Apple</p>
+                                       </div>
+                                       <div class="popup_form_dropdown">
+                                           <span>Модель:</span>
+                                           <select name="model">
+                                           <option selected disabled>-</option>
+                                           </select>
+                                       </div>
+                                       </div>
+                       
+                                       <div class="popup_form_service_loyaut" style="display: none;">
+                                       <span>Услуга:</span>
+                                       <div class="popup_form_service_desctiption">
+                                           <p id="service_title"></p>
+                                           <p><span id="service_device_device"></span><span id="service_device_cost"></span></p>
+                                       </div>
+                                       </div>
+                       
+                                       <div class="popup_form_checkbox"><input type="checkbox" id="dataProcessingId" name="dataProcessing" value="true"><label for="dataProcessingId">Я соглашаюсь на обработку персональных данных и с политикой конфиденциальности</label></div>
+                                       <input type="submit" id="btnSend" value="Отправить">
+                                   </form>
+                                   </div>
+                                   <div class="popup_success">
+                                   <div class="popup_success-close closes"></div>
+                                   <p class="titleSuccess">Спасибо за заявку!</p>
+                                   <div class="imgSuccess"></div>
+                                   <p class="descriptionSuccess">Наш менеджер свяжется с Вами</p>
+                                   </div>
+                               </div>
+                               <div id="upPage" style="display: none;"></div>
+                           </div>
+                       </div>
+                    <script src="https://axmobycms.ru/plugins/predeindmitry/createlanding/formwidgets/demonstracia/assets/js/slick.min.js?v1.0.3"></script>
+                  <script src="https://axmobycms.ru/plugins/predeindmitry/createlanding/formwidgets/demonstracia/assets/js/script.js?v1.0.3"></script>
+                </div>
+        </div>
+         <style>
+                  
+                  .bg_mainContent{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_back_maincontent?>") no-repeat;
+                           background-size: cover;
+                           background-position: center;
+                  }
+                  
+                  
+                  .logo{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $logo?>") no-repeat;
+                           background-size: contain;
+                  }
+                  .bg_header{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_back_descriptor?>") no-repeat;
+                           background-size: cover;
+                           background-position: center;
+                  }
+                  .img_slicer{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_descriptor?>") no-repeat;
+                           background-size: auto;
+                           background-size: cover;
+                           width: 400px;
+                           height: 400px;
+                  }
+                  
+                  .slick-arrow.slick-prev {
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_arrow_left_slider1?>") no-repeat;
+                  }
+                  .slick-arrow.slick-next {
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_arrow_right_slider1?>") no-repeat;
+                  }
+                  
+                  .orderSubmit, .homeOrderForm > input[name="homeOrderFormSubmit"], .quantityOrder > .level1{
+                           background: <?= $color_back_button?>;
+                  }
+                  .faqBox, .numberFaqBox, .titleFaqBox, .modelMainContent > section > .modelBox, .deviceSelected, .priceMainContent > section > .priceBox, .infoMainContent > section > .infoBox, .quantityOrder > .level1 > .level2, .trackComment  .comment, .homeOrderForm > input, .homeOrderForm > input, .bg_litleFont, .bg_footer{
+                           background: <?= $color_back_secondary?>;
+                  }
+                  .slick-arrow.slick-prev {
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_arrow_left_slider1?>") no-repeat;
+                  }
+                  .slick-arrow.slick-next {
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_arrow_right_slider1?>") no-repeat;
+                  }
+                  .priceMainContent > section > .priceBox{
+                           border: 2px solid <?= $color_back_secondary?>;
+                  }
+                  .bg_navBar, .deviceSelected .deviceSelectedImages:hover, .deviceSelectedImagesActive, .recommendationsContent, .bg_feedback, .bg_headerFut{
+                           background: <?= $color_back_primary?>;
+                  }
+                  .recommendationsContent > section > span{
+                           border-left: 3px solid <?= $color_fonts_secondary?>;
+                  }
+                  .menu > ul > li > a, .contact > .tel, .contact > .img_callback > .callback, .title_slicer > h1, .title_slicer > p, .title_slicer > p, .faqMainContent > p, .modelMainContent > p, .titleModelBox, .priceMainContent > p:nth-of-type(1), .priceMainContent > p:nth-of-type(2), .modelCheck, #titleInfoBoxH1, .infoBox .titleInfoBox > p, .quantityOrder > .stat, .quantityOrder > span, .homeOrder > span, .homeOrder > p, .homeOrderForm > input, .feedback  span, .trackComment  .comment  .name_user, .contacts .contactsH1, .contacts span, .contacts a, .popup .popup_form .popup_form_dropdown select, .popup .popup_form .popup_form_dropdown p, #service_title, .popup_success .titleSuccess{
+                           color: <?= $color_fonts_ptimary?>;
+                  }
+                  .navBar  ul  li  span, .titleFaqBox, .numberFaqBox, .deviceSelected .deviceSelectedImages p, .priceMainContent > section > .priceBox span, .svesda, .titleInfoBox span, .recommendationsContent > section > span, .quantityOrder > .level1 > .level2 > span, .trackComment .comment p, .litleFont > span{
+                           color: <?= $color_fonts_secondary?>;
+                  }
+                  .orderSubmit, .homeOrderForm > input[name="homeOrderFormSubmit"]{
+                           color: <?= $color_fonts_button?>;
+                  }
+                  #upPage{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_arrow_up?>") no-repeat;
+                  }
+                  .bg_model1{
+                           top: 20%;
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_back_model1?>") no-repeat;
+                           background-size: contain;
+                           background-position: left;
+                  }
+                  .bg_model2{
+                           top: 30%;
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_back_model2?>") no-repeat;
+                           background-size: contain;
+                           
+                           background-position-x: right;
+                           background-position-y: top;
+                  }
+                  .img1_bg_homeOrder{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_back_homeOrder?>") no-repeat;
+                           background-size: cover;
+                           background-position: center;
+                  }
+                  .trackComment  .comment  .img_user{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_user_item_feedback?>") no-repeat;
+                           background-size: cover;
+                  }
+                  .img2_bg_homeOrder{
+                           background: url("https://axmobycms.ru/storage/app/media/<?= $img_back_homeOrder2?>") no-repeat;
+                           background-size: cover;
+                           background-position: center;
+                  }
+         </style>

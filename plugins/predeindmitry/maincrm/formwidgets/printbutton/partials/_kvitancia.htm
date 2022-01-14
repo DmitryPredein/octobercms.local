@@ -1,0 +1,194 @@
+<div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Квитанция</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="dispnone2">
+                            <style>
+                                @media print {
+                                    @page {
+                                        margin: 5mm;
+                                    }
+                                    html, body, #printWrite2 table {
+                                        font-size: 3mm;
+                                    }
+                                    #print{
+                                        display: none;
+                                    }
+                                    #printWrite2 .mar_right{
+                                        margin-left: 60mm;
+                                    }
+                                    #printWrite2 .mar_rh{
+                                        margin-left: 80mm;
+                                    }
+                                    #printWrite2 .mar_lf{
+                                        margin-left: 27mm;
+                                    }
+                                    #printWrite2 .h1{
+                                        font-size: 5mm;
+                                    }
+                                    #printWrite2 .h1_5{
+                                        font-size: 4mm;
+                                    }
+                                    .smallText{
+                                        line-height: 0.95em;
+                                    }
+                                    #printWrite2 table {
+                                        border-collapse: collapse;
+                                    }
+                                    #printWrite2 td, th {
+                                        border: 1px solid #000;
+                                    }
+
+
+                                }
+                                .modal-dialog{
+                                    width: 210mm;
+                                }
+                                #printWrite2 {
+                                    margin: 5mm;
+                                }
+                                html, body, #printWrite2 table {
+                                    font-size: 3mm;
+                                }
+                                #printWrite2 .mar_right{
+                                    margin-left: 60mm;
+                                }
+                                #printWrite2 .mar_lf > span, #printWrite2 .mar_lf > input{
+                                    margin-left: 80mm;
+                                }
+                                #printWrite2 .mar_lf{
+                                    margin-left: 27mm;
+                                }
+                                #printWrite2 .h1{
+                                    font-size: 5mm;
+                                }
+                                #printWrite2 .h1_5{
+                                    font-size: 4mm;
+                                }
+                                .smallText{
+                                    line-height: 0.95em;
+                                }
+                                #printWrite2 table {
+                                    border-collapse: collapse;
+                                }
+                                #printWrite2 td, th {
+                                    border: 1px solid #000;
+                                }
+                            </style>
+                            <div id="printWrite2">
+                                <p><b class="h1">"АКCМОБИ" – Ремонт телефонов, планшетов, ноутбуков.</b><br />
+                                <small>ИП Сопыряева Ольга Сергеевна ИНН 701729122054 ОГРНИП 320665800123622. Адрес: <span class="printValue"><?= $stock_address; ?></span><br />
+                                Тел: 311-21-11  Время работы: <span class="printValue"><?= $stock_schedule; ?></span></small></p>
+
+                                <center><p><b class="h1_5">Квитанция  <span class="printValue"><?= $receipt_id ?></span> <span class="printValue"><?= date("Y-m-d H:i"); ?></span></b></p></center>
+
+                                <p>Вид ремонта: <span class="printValue"><?= $is_warranty ?></span><br />
+                                Заказчик: <span class="printValue"><?= $customer_name ?></span> <span class="printValue"><?= $customer_tel ?></span><br />
+                                Устройство: <span class="printValue"><?= $device_type ?></span> <span class="printValue"><?= $device_brand ?></span> <span class="printValue"><?= $device_model ?></span> IMEI: <span class="printValue"><?= $imei ?></span><br />
+
+                                <?php $condition_device_parse = explode(",", $condition_device); ?>
+                                <p>
+                                        <table cellspacing='0' width="100%">
+                                            <tr height="30">
+                                                <th><center><b> Заявленная неисправность </b></center></th><th width="70px"><center><b> Ориент. стоимость ремонта </b></center></th>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="printValue"><?= $description ?></span></td>
+
+                                                <td rowspan="3"><center><span class="printValue"><?= $orientir_cost ?>руб.</span></center></td>
+                                            </tr>
+                                            <tr height="30">
+                                                <th><center><b> Состояние устройства </b></center></th>
+                                            </tr>
+                                            <tr>
+                                                <td><?php foreach($condition_device_parse as $value){ echo $value." "; } ?></td>
+                                            </tr>
+                                        </table>
+                                </p>
+
+
+
+
+
+                                <p class="smallText"><small>1. Сервисный центр не несет ответственности за возможную потерю данных в индивидуальной памяти устройства, связанную с заменой плат, установкой программного обеспечения, заменой носителя информации.<br />
+                                2. Заказчик принимает на себя риск возможной полной или частичной утраты работоспособности аппарата в процессе ремонта (тепловой обработки) в случае грубых нарушений пользователем условий эксплуатации: наличий следов попадания жидкости (коррозии), инородных предметов либо механических повреждений.<br />
+                                3. На восстановленные после попадания жидкости аппараты гарантия не распространяется и не продлевается.<br />
+                                4. Срок хранения аппарата 30 дней с момента сообщения о готовности, либо невозможности ремонта. После данного срока аппарат утилизируется, и претензии по нему не принимаются. Стоимость хранения устройства после 30 дней бесплатного хранения 10 рублей в день.<br />
+                                5. Заказчик согласен со скрытыми дефектами, выявленными в процессе диагностики или ремонта инженером.<br />
+                                6. Заказчик согласен с тем, что будут видны следы вскрытия корпуса после диагностики или ремонта аппарата.<br />
+                                7. Гарантия на программное обеспечение не распространяется.<br />
+                                8. Стоимость диагностики составляет 300 рублей. Диагностика оплачивается в случае отказа от ремонта.<br />
+                                9. Ремонт стоимостью до 900 рублей, выполняется без согласования с заказчиком.<br />
+                                10. Срок ремонта может достигать 90 рабочих дней.<br />
+                                11. Подписание документа говорит о согласии заказчика с условиями ремонта и хранения устройства.<br />
+                                12. Сервисный центр устраняет неисправность, заявленную Клиентом при сдаче устройства в ремонт.<br /></small></p>
+
+                                <p>Приемщик: <span class="printValue"><?= $manager ?></span><br />
+                                От Исполнителя  ___________________ <span class="mar_right">От Заказчика______________</span><br />
+                                <span class="mar_lf">ИП Сопыряева Ольга Сергеевна<span class="mar_rh printValue"><?= $customer_name ?></span></p>
+                                <br />
+
+                                <p><b class="h1">"АКCМОБИ" – Ремонт телефонов, планшетов, ноутбуков.</b><br />
+                                <small>ИП Сопыряева Ольга Сергеевна ИНН 701729122054 ОГРНИП 320665800123622. Адрес: <span class="printValue"><?= $stock_address; ?></span><br />
+                                Тел: 311-21-11  Время работы: <span class="printValue"><?= $stock_schedule; ?></span></small></p>
+
+                                <center><p><b class="h1_5">Квитанция  <span class="printValue"><?= $receipt_id ?></span> <span class="printValue"><?= date("Y-m-d H:i"); ?></span></b></p></center>
+
+                                <p>Вид ремонта: <span class="printValue"><?= $is_warranty ?></span><br />
+                                Заказчик: <span class="printValue"><?= $customer_name ?></span> <span class="printValue"><?= $customer_tel ?></span><br />
+                                Устройство: <span class="printValue"><?= $device_type ?></span> <span class="printValue"><?= $device_brand ?></span> <span class="printValue"><?= $device_model ?></span> IMEI: <span class="printValue"><?= $imei ?></span> Пароль: <span class="printValue"><?= $password ?></span></span> Графический ключ: <span class="printValue"><?= $password_graf ?></span><br />
+
+                                <?php $condition_device_parse = explode(",", $condition_device); ?>
+                                <p>
+                                        <table cellspacing='0' width="100%">
+                                            <tr height="30">
+                                                <th><center><b> Заявленная неисправность </b></center></th><th width="70px"><center><b> Ориент. стоимость ремонта </b></center></th>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="printValue"><?= $description ?></span></td>
+
+                                                <td rowspan="3"><center><span class="printValue"><?= $orientir_cost ?>руб.</span></center></td>
+                                            </tr>
+                                            <tr height="30">
+                                                <th><center><b> Состояние устройства </b></center></th>
+                                            </tr>
+                                            <tr>
+                                                <td><?php foreach($condition_device_parse as $value){ echo $value." "; } ?></td>
+                                            </tr>
+                                        </table>
+                                </p>
+
+                                <p>Приемщик: <span class="printValue"><?= $manager ?></span><br />
+                                От Исполнителя  ___________________ <span class="mar_right">От Заказчика______________</span><br />
+                                <span class="mar_lf">ИП Сопыряева Ольга Сергеевна<span class="mar_rh printValue"><?= $customer_name ?></span></p>
+                            </div>
+                            <script>
+                                $('.printValue').click(function() {
+                                    let textSpan = $(this).text();
+                                    $(this).addClass("spanValue");
+                                    $(this).css('display', 'none');
+                                    $(this).after($('<input>', {
+                                        type: "text",
+                                        class: "printInput"
+                                    }));
+                                    $(".printInput:last").val(textSpan);
+                                    $(".printInput:last").focus();
+                                    $(".printInput").blur(function() {
+                                        let valueInput = $(this).val();
+                                        $(this).siblings('.spanValue').css('display', 'inline');
+                                        $(this).siblings('.spanValue').text(valueInput);
+                                        $(this).siblings('.spanValue').removeClass("spanValue");
+                                        $(this).detach();
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="print" class="btn btn-primary" onClick="$('#dispnone2').printMe();" data-request="<?= $this->getEventHandler('onJobRedirect') ?>">Print</button>
+                    </div>
+                </div>
+        </div>

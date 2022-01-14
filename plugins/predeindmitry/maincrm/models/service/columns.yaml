@@ -1,0 +1,18 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    service_name:
+        label: Наименование услуги
+        searchable: true
+    service_model:
+        label: Модель устройства
+        searchable: true
+    service_cost:
+        label: Стоимость
+    service_time:
+        label: Время

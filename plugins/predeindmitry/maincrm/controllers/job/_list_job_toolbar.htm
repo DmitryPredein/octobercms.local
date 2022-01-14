@@ -1,0 +1,31 @@
+<div data-control="toolbar">
+    <?php if ($this->user->hasAccess('predeindmitry.maincrm.some_permission.manager_statica')): ?>
+        <?= $this->widget->statisticamanager->render() ?>
+    <?php elseif ($this->user->hasAccess('predeindmitry.maincrm.widgets.cost_of_master')):?>
+        <?= $this->widget->statisticamaster->render() ?>
+    <?php endif ?>
+    <?php if ($this->user->hasAccess('predeindmitry.maincrm.some_permission.AddJob')): ?>
+        <a
+            href="<?= Backend::url('predeindmitry/maincrm/job/create') ?>"
+            class="btn btn-primary oc-icon-plus"
+            style="float: left">
+            Новая заявка
+        </a>
+    <?php endif ?>
+
+    <?php if ($this->user->hasAccess('predeindmitry.maincrm.some_permission.Delete')): ?>
+        <button
+            class="btn btn-danger oc-icon-trash-o"
+            disabled="disabled"
+            onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+            data-request="onDelete"
+            data-request-confirm="Вы действительно хотите удалить выбранные заявки?"
+            data-trigger-action="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-request-success="$(this).prop('disabled', 'disabled')"
+            data-stripe-load-indicator>
+            Удалить выделенное
+        </button>
+    <?php endif ?>
+</div>

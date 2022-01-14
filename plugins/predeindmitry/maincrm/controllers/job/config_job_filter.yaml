@@ -1,0 +1,100 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    masterFilter:
+        label: Мастер
+        type: group
+        modelClass: PredeinDmitry\MainCRM\Models\Job
+        scope: MasterFilter
+        options: getMasterFilterOptions
+
+    managerFilter:
+        label: Менеджер
+        type: group
+        modelClass: PredeinDmitry\MainCRM\Models\Job
+        scope: ManagerFilter
+        options: getManagerFilterOptions
+
+    jobStatusFilter:
+        label: Статус заявки
+        type: group
+        modelClass: PredeinDmitry\MainCRM\Models\Job
+        conditions: status_job in (:filtered)
+        options:
+            Принят: Принят
+            Передан мастеру: Передан мастеру
+            В процессе: В процессе
+            Отремонтирован: Отремонтирован
+            Ожидает запчасть: Ожидает запчасть
+            Выдан клиенту: Выдан клиенту
+            Выдан без ремонта: Выдан без ремонта
+
+    DataFilter:
+        label: Дата создания
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+
+    stockFilter:
+        label: Склад
+        type: group
+        modelClass: PredeinDmitry\MainCRM\Models\Job
+        conditions: stock_id in (:filtered)
+        options:
+            1: Склад 1
+            2: Склад 2
+
+    openJobLanding:
+         label: Заявки с лендингов
+         type: checkbox
+         default: 0
+         scope: OpenJobLanding
+
+    doneJob:
+         label: Осталось выдать
+         type: checkbox
+         default: 0
+         scope: DoneJob
+
+    openJobGarant:
+         label: Гарантийные заявки
+         type: checkbox
+         default: 0
+         scope: OpenJobGarant
+
+    allJob:
+         label: Всего в ремонте
+         type: checkbox
+         default: 1
+         scope: AllJob
+
+    openJobToday:
+         label: Принятые сегодня
+         type: checkbox
+         default: 0
+         scope: OpenJobToday
+
+    closeJobToday:
+         label: Закрытые сегодня
+         type: checkbox
+         default: 0
+         scope: CloseJobToday
+
+    overdueJobInMaster:
+         label: У мастера >3д
+         type: checkbox
+         default: 0
+         scope: OverdueJobInMaster
+
+    overdueJobDoneWork:
+         label: Готовые >3д
+         type: checkbox
+         default: 0
+         scope: OverdueJobDoneWork
+
+    allJobFreeMaster:
+         label: Свободные заявки
+         type: checkbox
+         default: 0
+         scope: AllJobFreeMaster

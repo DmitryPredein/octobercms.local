@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Статистика
+
+# Model Form Field configuration
+form: $/predeindmitry/masterstat/models/stat/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MasterStat\Models\Stat
+
+# Default redirect location
+defaultRedirect: predeindmitry/masterstat/stat
+
+# Create page
+create:
+    title: Create Stat
+    redirect: predeindmitry/masterstat/stat/update/:id
+    redirectClose: predeindmitry/masterstat/stat
+
+# Update page
+update:
+    title: Edit Stat
+    redirect: predeindmitry/masterstat/stat
+    redirectClose: predeindmitry/masterstat/stat
+
+# Preview page
+preview:
+    title: Просмотр статистики

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Service
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/service/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Service
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/service
+
+# Create page
+create:
+    title: Create Service
+    redirect: predeindmitry/maincrm/service/update/:id
+    redirectClose: predeindmitry/maincrm/service
+
+# Update page
+update:
+    title: Edit Service
+    redirect: predeindmitry/maincrm/service
+    redirectClose: predeindmitry/maincrm/service
+
+# Preview page
+preview:
+    title: Preview Service

@@ -1,0 +1,98 @@
+    <?php if($context == "create"): ?>
+        <div class="customNameLayauts">
+            <div class="LayautsFlexColumn is-required">
+                <label>Фамилия</label>
+                <input type="text" name="" id="controlOtchestIdFirstName" autocomplete="off" value="" placeholder="" class="form-control form-controlOtchest" autocomplete="off" maxlength="255">
+                <ul class="formNameSelectedUl">
+                    <?php
+                        foreach($customer as $value){
+                            echo("<li data-name='".$value['name']."' data-id='".$value['id']."' data-tel='".$value['tel']."'>".$value['name']."</li>");
+                        }
+                    ?>
+                </ul>
+            </div>
+            
+            <div class="LayautsFlexColumn is-required">
+                <label>Имя</label>
+                <input type="text" name="" id="controlOtchestIdName" autocomplete="off" value="" placeholder="" class="form-control form-controlOtchest" autocomplete="off" maxlength="255">
+                <ul class="formNameSelectedUl">
+                    <?php
+                        foreach($customer as $value){
+                            echo("<li data-name='".$value['name']."' data-id='".$value['id']."' data-tel='".$value['tel']."'>".$value['name']."</li>");
+                        }
+                    ?>
+                </ul>
+            </div>
+            
+            <div class="LayautsFlexColumn is-required">
+                <label>Отчество</label>
+                <input type="text" name="" id="controlOtchestIdLastName" autocomplete="off" value="" placeholder="" class="form-control form-controlOtchest" autocomplete="off" maxlength="255">
+            </div>
+    
+            <div class="LayautsFlexColumn is-required">
+                <label>Телефон</label>
+                <input
+                    onBlur=""
+                    type="tel"
+                    id="controlOtchestIdTel" 
+                    name=""
+                    class="form-control customNameTel"
+                    placeholder="+7 (999) 99 99 999"
+                    autocomplete="off"
+                    />
+            </div>
+            
+        </div>
+        <input
+            type="hidden"
+            id="controlOtchestFinal"
+            data-check="custom"
+            name="<?= $name ?>"
+            value=""
+            class="form-control customNameAddBd"
+            />
+    <?php endif ?>
+    <?php if($context == "update"): ?>
+        <div class="customNameLayauts">
+            <div class="LayautsFlexColumn is-required">
+                <label>ФИО</label>
+                <input
+                    type="text"
+                    name=""
+                    id="controlOtchestIdNameUpdate"
+                    autocomplete="off"
+                    value="<?= $nameCustomer ?>"
+                    placeholder=""
+                    class="form-control form-controlOtchestUpdate"
+                    autocomplete="off"
+                    maxlength="255"
+                    <?php if($readOnly): ?>readonly<?php endif ?>
+                    />
+            </div>
+    
+            <div class="LayautsFlexColumn is-required">
+                <label>Телефон</label>
+                <input
+                    onBlur=""
+                    type="tel"
+                    id="controlOtchestIdTelUpdate" 
+                    name=""
+                    class="form-control customNameTelUpdate"
+                    placeholder="+7 (999) 99 99 999"
+                    autocomplete="off"
+                    value="<?= $telCustomer ?>"
+                    <?php if($readOnly): ?>readonly<?php endif ?>
+                    />
+            </div>
+        </div>
+        <input
+            type="hidden"
+            id="controlOtchestFinalUpdate"
+            data-id="<?= $value ?>"
+            name="<?= $name ?>"
+            value="<?= $value ?>"
+            class="form-control customNameAddBd"
+            />
+    <?php endif ?>
+    
+

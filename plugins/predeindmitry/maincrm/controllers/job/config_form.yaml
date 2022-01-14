@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Job
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/job/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Job
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/job
+
+# Create page
+create:
+    title: Создание заявки
+    redirect: predeindmitry/maincrm/job/update/:id
+    redirectClose: predeindmitry/maincrm/job
+
+# Update page
+update:
+    title: Редактирование заявки
+    redirect: predeindmitry/maincrm/job
+    redirectClose: predeindmitry/maincrm/job
+
+# Preview page
+preview:
+    title: Просмотр заявки

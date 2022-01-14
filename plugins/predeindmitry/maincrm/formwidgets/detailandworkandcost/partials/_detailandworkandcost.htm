@@ -1,0 +1,86 @@
+<div class="contain">
+        
+        <?php if ($is_warranty != 'Гарантийный'): ?>
+            <?php if ($status_job == 'Выдан клиенту' || $status_job == 'Выдан без ремонта'): ?>
+                <div class="contain-items work">
+                    <?php
+                        foreach($work_done as $key => $value){
+                            echo("<div class='contain-item'>".++$key." = [<br />");
+                                echo("<div class='item-tab'>");
+                                    echo("<span class=''><b>Работа:</b> ".$value['work_done_label']."</span><br />");
+                                    echo("<span class=''><b>Стоимость:</b> ".$value['work_done_cost']."</span><br />");
+                                echo("</div>");
+                            echo("]</div>");
+                        }
+                    ?>
+                </div>
+                <div class="contain-items detail">
+                    <?php
+                        foreach($used_detail as $key => $value){
+                            echo("<div class='contain-item'>".++$key." = [<br />");
+                                echo("<div class='item-tab'>");
+                                    echo("<span class=''><b>Деталь:</b> ".$value['used_detail_label']."</span><br />");
+                                    echo("<span class=''><b>Стоимость:</b> ".$value['used_detail_cost']."</span><br />");
+                                echo("</div>");
+                            echo("]</div>");
+                        }
+                    ?>
+                </div>
+            <?php endif ?>
+        <?php else: ?>
+        <div class="contain-items cost">
+            <span><b>Стоимость заявки:</b> <?= $cost ?></span>
+        </div>
+            <div class="contain-items work">
+                
+                <?php
+                    foreach($work_done as $values){
+                            foreach($values as $key => $value){
+                                echo("<div class='contain-item'>".++$key." = [<br />");
+                                    echo("<div class='item-tab'>");
+                                        echo("<span class=''><b>Работа:</b> ".$value["work_done_label"]."</span><br />");
+                                        echo("<span class=''><b>Стоимость:</b> ".$value["work_done_cost"]."</span><br />");
+                                    echo("</div>");
+                                echo("]</div>");
+                            }  
+                    }
+                    if($status_job == 'Выдан без ремонта' || $status_job == 'Выдан клиенту'){
+                        foreach($work_done2 as $key => $value){
+                            echo("<div class='contain-item'>".++$key." по гарантии = [<br />");
+                                echo("<div class='item-tab'>");
+                                    echo("<span class=''><b>Работа:</b> ".$value['work_done_label']."</span><br />");
+                                    echo("<span class=''><b>Стоимость:</b> ".$value['work_done_cost']."</span><br />");
+                                echo("</div>");
+                            echo("]</div>");
+                        }
+                    }
+                ?>
+            </div>
+            <div class="contain-items detail">
+                <?php
+                    foreach($used_detail as $values){
+                            foreach($values as $key => $value){
+                                echo("<div class='contain-item'>".++$key." = [<br />");
+                                    echo("<div class='item-tab'>");
+                                        echo("<span class=''><b>Работа:</b> ".$value["used_detail_label"]."</span><br />");
+                                        echo("<span class=''><b>Стоимость:</b> ".$value["used_detail_cost"]."</span><br />");
+                                    echo("</div>");
+                                echo("]</div>");
+                            }  
+                    }
+                    if($status_job == 'Выдан без ремонта' || $status_job == 'Выдан клиенту'){
+                        foreach($used_detail2 as $key => $value){
+                            echo("<div class='contain-item'>".++$key." по гарантии = [<br />");
+                                echo("<div class='item-tab'>");
+                                    echo("<span class=''><b>Деталь:</b> ".$value['used_detail_label']."</span><br />");
+                                    echo("<span class=''><b>Стоимость:</b> ".$value['used_detail_cost']."</span><br />");
+                                echo("</div>");
+                            echo("]</div>");
+                        }
+                    }
+                ?>
+            </div>
+        <?php endif ?>
+    </div>
+
+        

@@ -1,0 +1,221 @@
+
+/* iPhone */
+.themeIphone .title_slicer > h1 > span{color: #CBCBCB;}
+.themeIphone .orderSubmit{background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);}
+.themeIphone .img_slicer{
+  background: url('../img/iphone/imageSlicerIphone.png') no-repeat;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+}
+@media screen and (max-width: 1170px){
+  .themeIphone .img_slicer{
+    top: 60px;
+    width: 380px;
+    height: 380px;
+  }
+}
+@media screen and (max-width: 860px){
+  .themeIphone .img_slicer{
+    top: 20px;
+    width: 320px;
+    height: 320px;
+  }
+}
+@media screen and (max-width: 690px){
+  .themeIphone .img_slicer{
+    background: url(../img/iphone/Apple.png) no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    margin-bottom: -50px;
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 376px){
+  .themeIphone .img_slicer{
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+.themeIphone .menu > ul > li:hover{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .contact > .img_callback:hover{
+  background: url('../img/iphone/borderIphone.png') no-repeat;
+  background-size: contain;
+}
+.themeIphone .contact > .img_callback:hover .callback{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.themeIphone .navBar  ul  li:hover{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .navBar  ul  li:hover .orderNavBar{
+  background: url('../img/iphone/imageOrderIphone.svg') no-repeat;
+  background-size: contain;
+}
+.themeIphone .navBar  ul  li:hover .priceNavBar{
+  background: url('../img/iphone/imagePriceIphon.svg') no-repeat;
+  background-size: contain;
+}
+.themeIphone .navBar  ul  li:hover .settingNavbar{
+  background: url('../img/iphone/imageSettingsIphon.svg') no-repeat;
+  background-size: contain;
+}
+@media screen and (max-width: 426px){
+  .themeIphone .navBar  ul  li .orderNavBar{
+    background: url('../img/iphone/imageOrderIphone.svg') no-repeat;
+    background-size: contain;
+  }
+  .themeIphone .navBar  ul  li .priceNavBar{
+    background: url('../img/iphone/imagePriceIphon.svg') no-repeat;
+    background-size: contain;
+  }
+  .themeIphone .navBar  ul  li .settingNavbar{
+    background: url('../img/iphone/imageSettingsIphon.svg') no-repeat;
+    background-size: contain;
+  }
+}
+
+
+
+.themeIphone .faq1{
+  background: url('../img/iphone/FrameIphone1.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.themeIphone .faq2{
+  background: url('../img/iphone/FrameIphone2.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.themeIphone .faq3{
+  background: url('../img/iphone/FrameIphone3.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.themeIphone .faq4{
+  background: url('../img/iphone/FrameIphone4.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.themeIphone .faqBox:hover .titleFaqBox{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .faqBox:hover .numberFaqBox{color: #CBCBCB;}
+
+.themeIphone .modelBox:hover .titleModelBox{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.themeIphone .deviceSelected .deviceSelectedTablet:hover .deviceSelectedTablet_img, .themeIphone .deviceSelected .deviceSelectedImagesActive .deviceSelectedTablet_img{
+  background: url('../img/iphone/imageTabletIphone.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.themeIphone .deviceSelected .deviceSelectedPhone:hover .deviceSelectedPhone_img, .themeIphone .deviceSelected .deviceSelectedImagesActive .deviceSelectedPhone_img{
+  background: url('../img/iphone/imagePhoneIphone.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.themeIphone .deviceSelected .deviceSelectedLaptop:hover .deviceSelectedLaptop_img, .themeIphone .deviceSelected .deviceSelectedImagesActive .deviceSelectedLaptop_img{
+  background: url('../img/iphone/imageLaptopIphone.svg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.themeIphone .deviceSelected > .deviceSelectedImages:hover .titleDevice, .themeIphone .deviceSelected .deviceSelectedImagesActive .titleDevice{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .priceMainContent > section > .priceBox:hover{
+  border: 2px solid #CBCBCB;
+}
+.themeIphone .priceMainContent > section > .priceBox:hover .titlePriceBox{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .priceMainContent > section > .priceBox:hover .price{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .priceMainContent > section > .priceBox:hover .dedlaine{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.themeIphone .infoBox .titleInfoBox > div > span{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .infoBox:nth-child(2) .titleInfoBox > span{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.themeIphone .icon_infoBox1{
+  background: url('../img/iphone/arrowRightBigIphone.png') no-repeat;
+  background-size: cover;
+}
+.themeIphone .icon_infoBox2{
+  background: url('../img/iphone/telephone2Iphon.png') no-repeat;
+  background-size: cover;
+}
+
+.themeIphone .quantityOrder > .level1{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+  box-shadow: 0px 0px 40px rgba(217, 217, 217, 0.4);
+}
+.themeIphone .quantityOrder > .level1 > .level2 > span{
+  background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.themeIphone .homeOrderForm > input[name="homeOrderFormSubmit"]{background: linear-gradient(95.83deg, #CBCBCB 0.62%, #F8F8F8 99.49%);}
+.themeIphone .trackComment  .comment  .img_user{
+  background: url('../img/iphone/userIphone.png') no-repeat;
+  background-size: cover;
+}
+.themeIphone .popup .popup_title{
+  background: linear-gradient(91.26deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+}
+.themeIphone .popup .popup_form input[type="submit"]{
+  background: linear-gradient(91.26deg, #CBCBCB 0.62%, #F8F8F8 99.49%);
+}
+.themeIphone .popup_success .imgSuccess{
+  background: url('../img/iphone/SuccessIphone.png') no-repeat;
+  background-size: cover;
+}

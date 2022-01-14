@@ -1,0 +1,34 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+    created_at:
+        label: Дата создания
+    closed_at:
+        label: Дата закрытия
+    master_id:
+        label: Мастер
+        span: left
+    percent:
+        label: Процент
+        span: right
+    done_device:
+        label: Аппараты(шт)
+        span: left
+    done_cost:
+        label: Аппараты(руб)
+        span: right
+    return_device:
+        label: Возвраты(шт)
+        span: left
+    return_cost:
+        label: Возвраты(руб)
+        span: right
+    money_penalty:
+        label: Штрафы(руб)
+    outcome:
+        label: Итого
+

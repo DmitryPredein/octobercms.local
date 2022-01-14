@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    name:
+        label: ФИО
+        type: text
+        span: left
+        placeholder: Петров Василий Александрович
+        required: true
+    position:
+        label: Должность
+        span: right
+        type: dropdown
+        required: true
+        options:
+            Менеджер: Менеджер
+            Мастер: Мастер

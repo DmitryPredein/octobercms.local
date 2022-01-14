@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Employee
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/employee/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Employee
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/employee
+
+# Create page
+create:
+    title: Create Employee
+    redirect: predeindmitry/maincrm/employee/update/:id
+    redirectClose: predeindmitry/maincrm/employee
+
+# Update page
+update:
+    title: Edit Employee
+    redirect: predeindmitry/maincrm/employee
+    redirectClose: predeindmitry/maincrm/employee
+
+# Preview page
+preview:
+    title: Preview Employee

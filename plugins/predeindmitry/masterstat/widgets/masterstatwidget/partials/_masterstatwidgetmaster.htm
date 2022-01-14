@@ -1,0 +1,39 @@
+        <h3><?= $name?> (<?= $percent==null?"-":$percent?>%)</h3>
+        <div class="control-list">
+            <table class="table data">
+                <thead>
+                    <tr>
+                        <th><span>Заголовки</span></th>
+                        <th><span>Кол-во</span></th>
+                        <th><span>Сумма</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Выдано: <?= $date_close==null?"-":$date_close ?></td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Готовые аппараты:</td>
+                        <td><?= $done_device==null?"-":$done_device ?></td>
+                        <td><?= $done_cost==null?"-":$done_cost ?></td>
+                    </tr>
+                    <tr>
+                        <td>Возвраты:</td>
+                        <td><?= $return_device==null?"-":$return_device ?></td>
+                        <td><?= $return_cost==null?"-":$return_cost ?></td>
+                    </tr>
+                    <tr>
+                        <td>Штрафы:</td>
+                        <td>-</td>
+                        <td><?= $money_penalty==null?"-":$money_penalty ?></td>
+                    </tr>
+                    <tr>
+                        <td>Итого:</td>
+                        <td>-</td>
+                        <td><?= $outcome==null?"-":$outcome ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>

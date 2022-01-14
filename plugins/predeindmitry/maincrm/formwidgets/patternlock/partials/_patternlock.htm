@@ -1,0 +1,48 @@
+<?php use PredeinDmitry\MainCRM\Models\Job; ?>
+<style>
+    .containeree{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="containeree">
+    <div id="patternHolder" class="pattern-holder"></div>
+</div>
+<?php
+    if($patternlock == NULL){
+        echo("<input class='btn disabled' id='btn_pattern' name='Job[patternlock]' value='0' />");
+    }
+    if($patternlock != NULL){
+        echo("<input class='btn disabled' id='btn_pattern' name='Job[patternlock]' value='$patternlock' />");
+    }
+?>
+<script type="text/javascript">
+            if($('#btn_pattern').val() == 0){
+                var lock= new PatternLock('#patternHolder', {
+                    onDraw:function(pattern){
+                        let valueKey = lock.getPattern();
+                        $('#btn_pattern').val(valueKey);
+                    },
+                    radius:13,
+
+                    margin:13
+
+                });
+            }
+            else if($('#btn_pattern').val() != 0){
+                var lock = new PatternLock('#patternHolder', {
+                    enableSetPattern : true,
+                    onDraw:function(pattern){
+                        let valueKey = lock.getPattern();
+                        if(valueKey != $('#btn_pattern').val()){
+                            $('#btn_pattern').val(valueKey);
+                        }
+                    },
+                    radius:13,
+
+                    margin:13
+                });
+                lock.setPattern($('#btn_pattern').val());
+            }
+</script>

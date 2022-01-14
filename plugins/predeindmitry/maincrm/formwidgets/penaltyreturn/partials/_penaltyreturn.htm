@@ -1,0 +1,15 @@
+       <?php if ($info==null && $checkGarant!=null): ?>
+              <button
+                   data-control="popup"
+                   data-handler="<?= $this->getEventHandler('onPenaltyReturnPart1') ?>"
+                   data-size="small"
+                   class="btn btn-danger">
+                   Тревожная красная кнопка
+               </button>
+       <?php else: ?>
+              <button
+                   disabled="disabled"
+                   class="btn btn-danger">
+                   Тревожная красная кнопка
+               </button>
+       <?php endif ?>

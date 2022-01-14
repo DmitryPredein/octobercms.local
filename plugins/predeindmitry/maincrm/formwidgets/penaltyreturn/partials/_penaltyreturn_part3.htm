@@ -1,0 +1,48 @@
+<div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group checkboxlist-field">
+                <label>Выберите не возвратные детали</label>
+                <?php
+                    foreach($used_detail as $key => $value){
+                        echo("<div class='checkbox custom-checkbox used_detail_checkbox'>");
+                            echo("<input id='".$key."' name='checkbox' value='".$value["used_detail_cost"]."' type='checkbox'>");
+                            echo("<label class='choice' for='".$key."'> ".$value["used_detail_label"]."</label>");
+                            echo("<p class='help-block'>Стоимость: ".$value["used_detail_cost"]."</p>");
+                        echo("</div>");
+                    }
+                ?>
+            </div>
+            <h5>Списать с мастера <span id="cost"></span></h5>
+        </div>
+        <div class="modal-footer">
+            <button
+                data-control="popup"
+                data-handler="<?= $this->getEventHandler('onPenaltyReturnPartFinal') ?>"
+                data-request-data="cost: 0"
+                data-size="small"
+                data-dismiss="popup"
+                id="costGet"
+                class="btn btn-success">
+                Да
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    let cost = 0;
+    $(".used_detail_checkbox :checkbox").change(function() {
+        if (this.checked) {
+            cost += Number($(this).val());
+            $("#costGet").attr("data-request-data", "cost: "+cost);
+            $("#cost").text(cost);
+        } else {
+            cost -= Number($(this).val());
+            $("#costGet").attr("data-request-data", "cost: "+cost);
+            $("#cost").text(cost);
+        }
+    });
+</script>

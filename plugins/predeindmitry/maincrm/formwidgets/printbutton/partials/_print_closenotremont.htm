@@ -1,0 +1,265 @@
+        <div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Печать акта выполненых работ</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="dispnone">
+                            <style>
+                                @media print {
+                                    @page {
+                                        margin: 5mm;
+                                    }
+                                    html, body, #printWrite table {
+                                        font-size: 3mm;
+                                    }
+                                    #printWrite .mar_right{
+                                        margin-left: 60mm;
+                                    }
+                                    #printWrite .mar_rh{
+                                        margin-left: 80mm;
+                                    }
+                                    #printWrite .mar_lf{
+                                        margin-left: 27mm;
+                                    }
+                                    .modal-header, .modal-footer{
+                                        display: none;
+                                    }
+                                    #printWrite .h1{
+                                        font-size: 5mm;
+                                    }
+                                    #printWrite .h1_5{
+                                        font-size: 4mm;
+                                    }
+                                    #printWrite .smallText{
+                                        line-height: 0.95em;
+                                    }
+                                    #printWrite table {
+                                        border-collapse: collapse;
+                                    }
+                                    #printWrite td, th {
+                                        border: 1px solid #000;
+                                    }
+
+
+                                }
+                                .modal-dialog{
+                                    width: 210mm;
+                                }
+                                #printWrite {
+                                    margin: 5mm;
+                                }
+                                #printWrite .mar_right{
+                                    margin-left: 60mm;
+                                }
+                                #printWrite .mar_lf > span, #printWrite .mar_lf > input{
+                                    margin-left: 80mm;
+                                }
+                                #printWrite .mar_lf{
+                                    margin-left: 27mm;
+                                }
+                                html, body, #printWrite table {
+                                    font-size: 3mm;
+                                }
+                                #printWrite .h1{
+                                    font-size: 5mm;
+                                }
+                                #printWrite .h1_5{
+                                    font-size: 4mm;
+                                }
+                                #printWrite .smallText{
+                                    line-height: 0.95em;
+                                }
+                                #printWrite table {
+                                    border-collapse: collapse;
+                                }
+                                #printWrite td, th {
+                                    border: 1px solid #000;
+                                }
+                            </style>
+                            <div id="printWrite">
+                                <p><b class="h1">"АКCМОБИ" – Ремонт телефонов, планшетов, ноутбуков.</b><br />
+                                <small>ИП Сопыряева Ольга Сергеевна ИНН 701729122054 ОГРНИП 320665800123622. Адрес: <span class="printValue"><?= $stock_address; ?></span><br />
+                                Тел: 311-21-11  Время работы: <span class="printValue"><?= $stock_schedule; ?></span></small></p>
+
+                                <center><p><b class="h1_5">Акт выполненых работ № <span class="printValue"><?= $receipt_id ?></span> <span class="printValue"><?= date("Y-m-d H:i"); ?></span></b></p></center>
+
+                                <p>Вид ремонта: <span class="printValue"><?= $is_warranty ?></span><br />
+                                Заказчик: <span class="printValue"><?= $customer_name ?></span> <b><span class="printValue"><?= $customer_tel ?></span></b> <span class="printValue"><?= $customer_address ?></span> <span class="printValue"><?= $customer_email ?></span><br />
+                                Устройство: <span class="printValue"><?= $device_type ?></span>: <span class="printValue"><?= $device_brand ?></span> <span class="printValue"><?= $device_model ?></span> IMEI: <span class="printValue"><?= $imei ?></span><br />
+                                <b>Заявленная неисправность: </b><span class="printValue"><?= $description ?></span><br />
+                                <b>Мастер: </b><span class="printValue"><?= $master ?></span><br /></p>
+
+
+                                <p><?php
+
+                                    if($work_done != NULL){
+
+
+                                        echo("<table cellspacing='0' width='100%'>");
+
+                                        echo("<tr><th width='30px'><center>№</center></th><th><center>Выполненные работы</center></th><th width='60px'><center>Скидка</center></th><th width='70px'><center>Стоимость</center></th></tr>");
+                                        for($i = 0; $i < count($work_done); $i++){
+                                            echo("<tr>");
+                                            echo("<td><center>".($i+1)."</center></td>");
+                                            echo("<td><span class='printValue'>".$work_done[$i]['work_done_label']."</span></td>");
+                                            if($i == 0){
+                                                echo("<td rowspan='".count($work_done)."'><center><span class='printValue'>".$discount_work."</span></center></td>");
+                                            }
+                                            echo("<td><center><span class='printValue'>".$work_done[$i]['work_done_cost']."</span></center></td>");
+                                            echo("</tr>");
+                                        }
+                                        echo("<tr>");
+                                        echo("<td colspan='3' align='right'><b><span class='printValue'>Итого :</span></b></td><td><center>".$costFullWork."</center></td>");
+                                        echo("</tr>");
+                                        echo("</table>");
+                                    }
+
+                                ?></p>
+
+                                <p><?php
+
+                                    if($used_detail != NULL){
+
+
+                                        echo("<table cellspacing='0' width='100%'>");
+
+                                        echo("<tr><th width='30px'><center>№</center></th><th><center>Используемые запчасти</center></th><th width='60px'><center>Скидка</center></th><th width='70px'><center>Стоимость</center></th></tr>");
+                                        for($i = 0; $i < count($used_detail); $i++){
+                                            echo("<tr>");
+                                            echo("<td><center>".($i+1)."</center></td>");
+                                            echo("<td><span class='printValue'>".$used_detail[$i]['used_detail_label']."</span></td>");
+                                            if($i == 0){
+                                                echo("<td rowspan='".count($used_detail)."'><center><span class='printValue'>".$discount_details."</span></center></td>");
+                                            }
+                                            echo("<td><center><span class='printValue'>".$used_detail[$i]['used_detail_cost']."</span></center></td>");
+                                            echo("</tr>");
+                                        }
+                                        echo("<tr>");
+                                        echo("<td colspan='3' align='right'><b><span>Итого :</span></b></td><td><center>".$costFullDetails."</center></td>");
+                                        echo("</tr>");
+                                        echo("<tr>");
+                                        echo("<td colspan='3' align='right'><b><span>Полная стоимость ремонта с учётом скидки :</span></b></td><td><center>".$cost."</center></td>");
+                                        echo("</tr>");
+                                        echo("</table>");
+                                    }
+                                ?></p>
+
+                                <p>Полная стоимость ремонта: <span class="printValue"><?= $cost ?></span> руб.<br />
+                                Сумма прописью: <span class="printValue"><?= $cost_italic ?></span>.<br />
+                                Гарантия предоставляется на выполненную работу: <span class="printValue"><?= $warranty ?></span></p>
+
+                                <p class="smallText"><small>Устройство соответствует требованиям безопасности по ГОСТ Р50829-95 и ГОСТ 12.2.006-87.<br />
+                                Вышеперечисленные услуги выполнены полностью и в срок. Заказчик претензий по объему, качеству и срокам оказания услуг не имеет.</small></p>
+
+                                <p>Приемщик: <span class="printValue"><?= $manager ?></span><br />
+                                <span class="printValue">От Исполнителя  ___________________</span><span class="mar_right">От Заказчика______________</span><br />
+                                <span class="mar_lf">ИП Сопыряева Ольга Сергеевна<span class="mar_rh printValue"><?= $customer_name ?></span></p>
+
+                                <br />
+
+                                <p><b class="h1">"АКCМОБИ" – Ремонт телефонов, планшетов, ноутбуков.</b><br />
+                                <small>ИП Сопыряева Ольга Сергеевна ИНН 701729122054 ОГРНИП 320665800123622. Адрес: <span class="printValue"><?= $stock_address; ?></span><br />
+                                Тел: 311-21-11  Время работы: <span class="printValue"><?= $stock_schedule; ?></span></small></p>
+
+                                <center><p><b class="h1_5">Акт выполненых работ № <span class="printValue"><?= $receipt_id ?></span> <span class="printValue"><?= date("Y-m-d H:i"); ?></span></b></p></center>
+
+                                <p>Вид ремонта: <span class="printValue"><?= $is_warranty ?></span><br />
+                                Заказчик: <span class="printValue"><?= $customer_name ?></span> <b><span class="printValue"><?= $customer_tel ?></span></b> <span class="printValue"><?= $customer_address ?></span> <span class="printValue"><?= $customer_email ?></span><br />
+                                Устройство: <span class="printValue"><?= $device_type ?></span>: <span class="printValue"><?= $device_brand ?></span> <span class="printValue"><?= $device_model ?></span> IMEI: <span class="printValue"><?= $imei ?></span><br />
+                                <b>Заявленная неисправность: </b><span class="printValue"><?= $description ?></span><br />
+                                <b>Мастер: </b><span class="printValue"><?= $master ?></span><br /></p>
+
+                                <p><?php
+
+                                    if($work_done != NULL){
+
+
+                                        echo("<table cellspacing='0' width='100%'>");
+
+                                        echo("<tr><th width='30px'><center>№</center></th><th><center>Выполненные работы</center></th><th width='60px'><center>Скидка</center></th><th width='70px'><center>Стоимость</center></th></tr>");
+                                        for($i = 0; $i < count($work_done); $i++){
+                                            echo("<tr>");
+                                            echo("<td><center>".($i+1)."</center></td>");
+                                            echo("<td><span class='printValue'>".$work_done[$i]['work_done_label']."</span></td>");
+                                            if($i == 0){
+                                                echo("<td rowspan='".count($work_done)."'><center><span class='printValue'>".$discount_work."</span></center></td>");
+                                            }
+                                            echo("<td><center><span class='printValue'>".$work_done[$i]['work_done_cost']."</span></center></td>");
+                                            echo("</tr>");
+                                        }
+                                        echo("<tr>");
+                                        echo("<td colspan='3' align='right'><b><span class='printValue'>Итого :</span></b></td><td><center>".$costFullWork."</center></td>");
+                                        echo("</tr>");
+                                        echo("</table>");
+                                    }
+
+                                ?></p>
+
+                                <p><?php
+
+                                    if($used_detail != NULL){
+
+
+                                        echo("<table cellspacing='0' width='100%'>");
+
+                                        echo("<tr><th width='30px'><center>№</center></th><th><center>Используемые запчасти</center></th><th width='60px'><center>Скидка</center></th><th width='70px'><center>Стоимость</center></th></tr>");
+                                        for($i = 0; $i < count($used_detail); $i++){
+                                            echo("<tr>");
+                                            echo("<td><center>".($i+1)."</center></td>");
+                                            echo("<td><span class='printValue'>".$used_detail[$i]['used_detail_label']."</span></td>");
+                                            if($i == 0){
+                                                echo("<td rowspan='".count($used_detail)."'><center><span class='printValue'>".$discount_details."</span></center></td>");
+                                            }
+                                            echo("<td><center><span class='printValue'>".$used_detail[$i]['used_detail_cost']."</span></center></td>");
+                                            echo("</tr>");
+                                        }
+                                        echo("<tr>");
+                                        echo("<td colspan='3' align='right'><b><span class='printValue'>Итого :</span></b></td><td><center>".$costFullDetails."</center></td>");
+                                        echo("</tr>");
+                                        echo("<tr>");
+                                        echo("<td colspan='3' align='right'><b><span>Полная стоимость ремонта с учётом скидки :</span></b></td><td><center>".$cost."</center></td>");
+                                        echo("</tr>");
+                                        echo("</table>");
+                                    }
+                                ?></p>
+
+                                <p>Полная стоимость ремонта: <span class="printValue"><?= $cost ?></span> руб.<br />
+                                Сумма прописью: <span class="printValue"><?= $cost_italic ?></span>.<br />
+                                Гарантия предоставляется на выполненную работу: <span class="printValue"><?= $warranty ?></span></p>
+
+                                <p class="smallText"><small>Устройство соответствует требованиям безопасности по ГОСТ Р50829-95 и ГОСТ 12.2.006-87.<br />
+                                Вышеперечисленные услуги выполнены полностью и в срок. Заказчик претензий по объему, качеству и срокам оказания услуг не имеет.</small></p>
+
+                                <p>Приемщик: <span class="printValue"><?= $manager ?></span><br />
+                                <span class="printValue">От Исполнителя  ___________________</span><span class="mar_right">От Заказчика______________</span><br />
+                                <span class="mar_lf">ИП Сопыряева Ольга Сергеевна<span class="mar_rh printValue"><?= $customer_name ?></span></p>
+                            </div>
+                            <script>
+                                $('.printValue').click(function() {
+                                    let textSpan = $(this).text();
+                                    $(this).addClass("spanValue");
+                                    $(this).css('display', 'none');
+                                    $(this).after($('<input>', {
+                                        type: "text",
+                                        class: "printInput"
+                                    }));
+                                    $(".printInput:last").val(textSpan);
+                                    $(".printInput:last").focus();
+                                    $(".printInput").blur(function() {
+                                        let valueInput = $(this).val();
+                                        $(this).siblings('.spanValue').css('display', 'inline');
+                                        $(this).siblings('.spanValue').text(valueInput);
+                                        $(this).siblings('.spanValue').removeClass("spanValue");
+                                        $(this).detach();
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="print" class="btn btn-primary" data-dismiss="popup" onClick="$('#dispnone').printMe();" data-request="<?= $this->getEventHandler('onCloseNotJob') ?>">Print</button>
+                    </div>
+                </div>
+        </div>

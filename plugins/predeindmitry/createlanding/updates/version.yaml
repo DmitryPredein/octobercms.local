@@ -1,0 +1,4 @@
+1.0.1: First version of CreateLanding
+1.0.3: 
+    - run migrate
+    - create_landings_table.php

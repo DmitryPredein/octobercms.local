@@ -1,0 +1,5 @@
+scopes:
+     DataFilter:
+        label: Дата
+        type: daterange
+        conditions: closed_at >= ':after' AND closed_at <= ':before'

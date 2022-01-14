@@ -1,0 +1,17 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    stock:
+        label: Склад
+        type: text
+        required: true
+    stock_address:
+        label: Адрес
+        type: text
+        required: true
+    schedule:
+        label: График
+        type: text
+        required: true

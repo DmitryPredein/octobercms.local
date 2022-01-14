@@ -1,0 +1,29 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    master_id:
+        label: Мастер
+        searchable: true
+    percent:
+        label: Процент
+    done_device:
+        label: Аппараты(шт)
+    done_cost:
+        label: Аппараты(руб)
+    return_device:
+        label: Возвраты(шт)
+    return_cost:
+        label: Возвраты(руб)
+    money_penalty:
+        label: Штрафы(руб)
+    outcome:
+        label: Итого
+    created_at:
+        label: Дата создания
+    closed_at:
+        label: Дата закрытия

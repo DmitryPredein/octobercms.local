@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Landing
+
+# Model Form Field configuration
+form: $/predeindmitry/createlanding/models/landing/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\CreateLanding\Models\Landing
+
+# Default redirect location
+defaultRedirect: predeindmitry/createlanding/landing
+
+# Create page
+create:
+    title: Create Landing
+    redirect: predeindmitry/createlanding/landing/update/:id
+    redirectClose: predeindmitry/createlanding/landing
+
+# Update page
+update:
+    title: Edit Landing
+    redirect: predeindmitry/createlanding/landing
+    redirectClose: predeindmitry/createlanding/landing
+
+# Preview page
+preview:
+    title: Preview Landing

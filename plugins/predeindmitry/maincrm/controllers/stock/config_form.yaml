@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Stock
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/stock/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\Stock
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/stock
+
+# Create page
+create:
+    title: Create Stock
+    redirect: predeindmitry/maincrm/stock/update/:id
+    redirectClose: predeindmitry/maincrm/stock
+
+# Update page
+update:
+    title: Edit Stock
+    redirect: predeindmitry/maincrm/stock
+    redirectClose: predeindmitry/maincrm/stock
+
+# Preview page
+preview:
+    title: Preview Stock

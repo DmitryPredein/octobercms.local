@@ -1,0 +1,37 @@
+        <?php if ($descriptionPrev != null && $notehzzahcemPrev != null): ?>
+                <button
+                        data-control="popup"
+                        data-handler="<?= $this->getEventHandler('onLoadContent') ?>"
+                        data-size="huge"
+                        class="btn btn-success">
+                        Акт выполнения
+                </button>
+                <button
+                        data-control="popup"
+                        data-handler="<?= $this->getEventHandler('onLoadContentKvitancia') ?>"
+                        data-size="huge"
+                        class="btn btn-success">
+                        Квитанция
+                </button>
+            
+        <?php else: ?>
+                <button
+                        disabled="disabled"
+                        class="btn btn-success">
+                        Акт выполнения
+                </button>
+                <button
+                        disabled="disabled"
+                        class="btn btn-success">
+                        Квитанция
+                </button>
+        <?php endif ?>
+        
+        <button
+            data-control="popup"
+            data-handler="<?= $this->getEventHandler('onLoadContentCloseNotJob') ?>"
+            data-size="huge"
+            class="btn rightLayauts">
+            Выдать без ремонта
+        </button>
+        <p class="help-block"> Для печати заполните поля "Примечание" и "Заявленная неисправность" и при необходимости обновите страницу</p>

@@ -1,0 +1,73 @@
+    <div class="messagelogformwidget_style_form">
+        <span class="user_backendNameChat"><b>
+            Чат
+        </b></span>
+        <span id="successId" style="color: green"></span>
+        <span class="user_backendName" style="display: none"><b>
+            <?= $user["last_name"]." ".$user["first_name"] ?>
+        </b></span>
+        <div>
+            <input
+                id="messagelogformwidget_message"
+                type="text"
+                class="form-control field-textarea size-tiny"
+                onBlur="messageAddNoneInput();"
+                placeholder="Оставить комментарий"/>
+            <button
+                id="button_add_messageId"
+                type="button"
+                value=""
+                class="btn btn-success icon-plus" ></button>
+        </div>
+    </div>
+    <input
+        id="messagelogformwidget_message_adddb"
+        type="text"
+        name="<?= $name ?>"
+        value="<?= $value ?>"
+        class="form-control" />
+    <div class="messagelog-message" id="messagelog">
+        <?= $this->makePartial('messagelog') ?>
+    </div>
+    <script defer>
+        $("#messagelogformwidget_message_adddb").val(null);
+        function messageAddNoneInput() {
+            if($("#messagelogformwidget_message").val()){
+                let message = $(".user_backendName b").text()+":::"+$("#messagelogformwidget_message").val();
+                $("#messagelogformwidget_message_adddb").val(message);
+            }
+            else if(!($("#messagelogformwidget_message").val())) {
+                $("#messagelogformwidget_message_adddb").val(null);
+            }
+        }
+        $("#button_add_messageId").click(function() {
+            if($("#messagelogformwidget_message_adddb").val()){
+                $.request('onAddMessage', {
+                    data: {message: $("#messagelogformwidget_message_adddb").val()},
+                    complete: function(){
+                        $("#successId").html("Коммент отправленн");
+                        setTimeout(function(){
+                            $("#successId").html("");      
+                        }, 1500);
+                    },
+                    update: {messagelog: '#messagelog'},
+                });
+                let nameTime = $(".user_backendName b").text();
+                let messageTime = $("#messagelogformwidget_message").val();
+                let dataTime = new Date();
+                let dataMonth = dataTime.getUTCMonth() > 8 ? (dataTime.getUTCMonth()+1) : "0"+(dataTime.getUTCMonth()+1);
+                let dataDate = dataTime.getUTCDate() > 9 ? dataTime.getUTCDate() : "0"+dataTime.getUTCDate();
+                let dataHours = dataTime.getUTCHours() > 9 ? dataTime.getUTCHours() : "0"+dataTime.getUTCHours();
+                let dataMinutes = dataTime.getUTCMinutes() > 9 ? dataTime.getUTCMinutes() : "0"+dataTime.getUTCMinutes();
+                let dataSeconds = dataTime.getUTCSeconds() > 9 ? dataTime.getUTCSeconds() : "0"+dataTime.getUTCSeconds();
+                let dataTimeFinal = dataTime.getUTCFullYear()+"-"+dataMonth+"-"+dataDate+" "+dataHours+":"+dataMinutes+":"+dataSeconds;
+                
+                setTimeout(function(){
+                    $("#messagelog > div").prepend( $("<div class='chat_window'><span><p class='name_style_fonts'><b>"+nameTime+"</b></p><p class='data_style_fonts'><i>("+dataTimeFinal+")</i>:</p></span> <p class='message_style_fonts'>"+messageTime+"</p></div>") );      
+                }, 1000);
+                            
+                $("#messagelogformwidget_message_adddb").val(null);
+                $("#messagelogformwidget_message").val(null);    
+            }    
+        });
+    </script>

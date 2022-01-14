@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="<?= App::getLocale() ?>" class="no-js <?= $this->makeLayoutPartial('browser_detector') ?>">
+    <head>
+        <?= $this->makeLayoutPartial('head') ?>
+        <?= $this->fireViewEvent('backend.layout.extendHead', ['layout' => 'default.htm']) ?>
+        
+        <script  type="text/javascript" src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+        <script  type="text/javascript" src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+        <script  type="text/javascript" src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+        <script  type="text/javascript" src="https://www.gstatic.com/firebasejs/7.19.0/firebase-messaging.js"></script>
+
+    </head>
+    <body class="<?= $this->bodyClass ?>">
+        <div id="layout-canvas">
+            <div class="layout">
+
+                <!-- Main Menu -->
+                <div class="layout-row min-size">
+                    <?= $this->makeLayoutPartial('mainmenu') ?>
+                </div>
+
+                <?php $flyoutContent = Block::placeholder('sidepanel-flyout') ?>
+
+                <div class="layout-row">
+                    <div class="layout flyout-container"
+                        <?php if ($flyoutContent): ?>
+                            data-control="flyout"
+                            data-flyout-width="400"
+                            data-flyout-toggle="#layout-sidenav"
+                        <?php endif ?>
+                    >
+                        <?php if ($flyoutContent): ?>
+                            <div class="layout-cell flyout"> <?= $flyoutContent ?></div>
+                        <?php endif ?>
+
+                        <!-- Side Navigation -->
+                        <?= $this->makeLayoutPartial('sidenav') ?>
+
+                        <!-- Side panel -->
+                        <?php if ($sidePanelContent = Block::placeholder('sidepanel')): ?>
+                            <div class="layout-cell w-350 hide-on-small" id="layout-side-panel" data-control="layout-sidepanel">
+                                <?= $sidePanelContent ?>
+                            </div>
+                        <?php endif ?>
+
+                        <!-- Content Body -->
+                        <div class="layout-cell layout-container" id="layout-body">
+                            <div class="layout-relative">
+
+                                <div class="layout">
+                                    <?php if ($breadcrumbContent = Block::placeholder('breadcrumb')): ?>
+                                        <!-- Breadcrumb -->
+                                        <div class="control-breadcrumb">
+                                            <?= $breadcrumbContent ?>
+                                        </div>
+                                    <?php endif ?>
+
+                                    <!-- Content -->
+                                    <div class="layout-row">
+                                        <?= Block::placeholder('body') ?>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Flash Messages -->
+        <div id="layout-flash-messages"><?= $this->makeLayoutPartial('flash_messages') ?></div>
+
+    
+        
+        <script  type="text/javascript">
+            //Настройки FCM
+            //https://console.firebase.google.com/u/1/
+            var firebaseConfig = {
+                apiKey: "AIzaSyCq2hvw88PyySzxFtr12QW_KVe0BVbdlRc",
+                authDomain: "axmobypush.firebaseapp.com",
+                databaseURL: "https://axmobypush.firebaseio.com",
+                projectId: "axmobypush",
+                storageBucket: "axmobypush.appspot.com",
+                messagingSenderId: "957274848027",
+                appId: "1:957274848027:web:3e7de6d11ac95983e271be"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const database = firebase.database();
+
+            const messaging = firebase.messaging();
+    
+            //запрос на показ Web-PUSH браузеру
+            messaging.requestPermission()
+            .then(function() {
+                console.log('Notification permission granted.');
+                // Если нотификация разрешена, получаем токен.
+                messaging.getToken()
+                .then(function(currentToken) {
+                    if (currentToken) {
+                        console.log(currentToken);
+                        
+                        let msg = {
+                            "notification": {
+                                "title": "Your Title",
+                                "text": "Your Text",
+                            },
+                            "registration_ids" : [
+                                "cCu0_2Bv7OSEqbB-wj3XXR:APA91bEwqZAQXqAcib50Vlx_apfp4Jn1vVSh_XxxGbg1yMXpMv9WY81iVAM1jLHlqSklrfiHRdEnP5sG1RI5ws7wpGYryRPGnCBpnhtQ8GakbyBinTNu0Ef7WuWMHxe6GJtjat3f7dos",
+                                "cm-qSqXbQO8JyhlcYEIrq5:APA91bHby-7a-9Pr64nPm_ywmWg2ZWu7zCNKSbPLfwZ7JJbD-y5YhqWvCbZLbDuWlYYa40qIfeH_-oYGr6ivHCS78J6s8alJTUmUxpBVZB40SBLVPA8eNsbCHGDP68GZxPC1tPEMD3Gn",
+                                "dY5-8iZA2BDgeSfrpTjgb6:APA91bGa6EtRK5tsJuqJp8T8Elas6LMFYbXQKBEKBwFQVlSLqwKL0FDXvSLX0dQHOawuqHt56cWa5ZJMNQqVHOOTmBjAB_-mr7fL89h8k4dxkY3aseHJLkBmNCCtVX2AFRqCOyFLu40_",
+                                "dY5-8iZA2BDgeSfrpTjgb6:APA91bHJOaCM6zQcXNUHxkAhsbnSB6gPk4A8eFwAdrEMlCmZZl_-Q2PAPLboZj9veQq9fmV_7Q1Ky8jdYRWGUNZ4e6xhqsOGe8lqrmTakK-CmFkL7bT5ILfPNnHBRyMxhoCx6KItNXma"
+                            ]
+                        };
+                        
+                        fetch('https://fcm.googleapis.com/fcm/send', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': 'key=AAAA3uIG-xs:APA91bElYb-ElRb0ys10Z5YRpfV1i98Iv75-5-cQRWDktIJ7zjluxOHY9pOLPPI3k7if2SYnvJ3iaj4MIfDn_4YtPsBVso8RIqL_2_jgcKFs7DrUP9Lx3UgEhr-Nb52Rzq5HQKsBMG7A',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(msg)
+                        }).catch(function(error) {
+                            console.log(error);
+                        });
+                    } else {
+                        console.log('No Instance ID token available. Request permission to generate one.');
+                    }
+                })
+                .catch(function(err) {
+                    console.log('An error occurred while retrieving token. ', err);
+                    showToken('Error retrieving Instance ID token. ', err);
+                });
+                // ...
+            })
+            .catch(function(err) {
+                console.log('Unable to get permission to notify.', err);
+            });
+    
+            /*
+            //обновление токена
+            messaging.onTokenRefresh(function() {
+                messaging.getToken()
+                .then(function(refreshedToken) {
+                    console.log('Token refreshed.');
+                })
+                .catch(function(err) {
+                    console.log('Unable to retrieve refreshed token ', err);
+                    showToken('Unable to retrieve refreshed token ', err);
+                });
+            }) */
+    
+            //окно sw
+            messaging.onMessage(function(payload) {
+                console.log('Message received. ', payload);
+                // регистрируем пустой ServiceWorker каждый раз
+                navigator.serviceWorker.register('firebase-messaging-sw.js');
+                // запрашиваем права на показ уведомлений если еще не получили их
+                Notification.requestPermission(function(result) {
+                    if (result === 'granted') {
+                        navigator.serviceWorker.ready.then(function(registration) {
+                            // теперь мы можем показать уведомление
+                            return registration.showNotification(payload.notification.title, payload.notification);
+                        }).catch(function(error) {
+                            console.log('ServiceWorker registration failed', error);
+                        });
+                    }
+                });
+            });
+
+            function SendTokenToServer(currentToken) {
+                firebase.database().ref('user/token/' + currentToken).set({
+                    token: currentToken,
+                });
+            }
+            
+            function sendNotification() {
+                
+                var a = firebase.database().ref('user/token/');
+                console.log(firebase.database().ref('axmobypush/user/token/'));
+                
+                messaging.getToken()
+                    .then(function(currentToken) {
+                        
+                        let msg = {
+                            "notification": {
+                                "title": "Your Title",
+                                "text": "Your Text",
+                            },
+                            "registration_ids" : [
+                                "cCu0_2Bv7OSEqbB-wj3XXR:APA91bEwqZAQXqAcib50Vlx_apfp4Jn1vVSh_XxxGbg1yMXpMv9WY81iVAM1jLHlqSklrfiHRdEnP5sG1RI5ws7wpGYryRPGnCBpnhtQ8GakbyBinTNu0Ef7WuWMHxe6GJtjat3f7dos",
+                                "cm-qSqXbQO8JyhlcYEIrq5:APA91bHby-7a-9Pr64nPm_ywmWg2ZWu7zCNKSbPLfwZ7JJbD-y5YhqWvCbZLbDuWlYYa40qIfeH_-oYGr6ivHCS78J6s8alJTUmUxpBVZB40SBLVPA8eNsbCHGDP68GZxPC1tPEMD3Gn",
+                                "dY5-8iZA2BDgeSfrpTjgb6:APA91bGa6EtRK5tsJuqJp8T8Elas6LMFYbXQKBEKBwFQVlSLqwKL0FDXvSLX0dQHOawuqHt56cWa5ZJMNQqVHOOTmBjAB_-mr7fL89h8k4dxkY3aseHJLkBmNCCtVX2AFRqCOyFLu40_",
+                                "dY5-8iZA2BDgeSfrpTjgb6:APA91bHJOaCM6zQcXNUHxkAhsbnSB6gPk4A8eFwAdrEMlCmZZl_-Q2PAPLboZj9veQq9fmV_7Q1Ky8jdYRWGUNZ4e6xhqsOGe8lqrmTakK-CmFkL7bT5ILfPNnHBRyMxhoCx6KItNXma"
+                            ]
+                        };
+                        
+                        fetch('https://fcm.googleapis.com/fcm/send', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': 'key=AAAA3uIG-xs:APA91bElYb-ElRb0ys10Z5YRpfV1i98Iv75-5-cQRWDktIJ7zjluxOHY9pOLPPI3k7if2SYnvJ3iaj4MIfDn_4YtPsBVso8RIqL_2_jgcKFs7DrUP9Lx3UgEhr-Nb52Rzq5HQKsBMG7A',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(msg)
+                        }).catch(function(error) {
+                            console.log(error);
+                        });
+                    })
+                    .catch(function(error) {
+                        console.log('Error retrieving Instance ID token', error);
+                    });
+            }
+		</script>
+    </body>
+</html>

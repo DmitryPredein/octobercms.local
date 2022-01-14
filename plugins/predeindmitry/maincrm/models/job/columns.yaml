@@ -1,0 +1,75 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+
+    name:
+        label: ФИО
+        searchable: true
+        relation: name
+        select: name
+        type: fio
+
+    status_job:
+        label: Статус заказа
+
+    devicemodel:
+        label: Модель
+
+    master:
+        label: Мастер
+        relation: master
+        select: name
+
+    manager_id:
+        label: Менеджер
+        relation: manager
+        select: name
+
+    stock_id:
+        label: Склад
+        relation: stock
+        select: stock
+        cssClass: BoltText
+
+    is_warranty:
+        label: Гарантийность
+
+    warranty:
+        label: Гарантия
+
+    cost:
+        label: Итого
+
+    orientir_cost:
+        label: Ор. ст.
+
+    payment_method:
+        label: Метод оплаты
+
+    descriptions:
+        label: Заяв. неисп.
+
+    note:
+        label: Тип заявки
+
+    notehzzahcem:
+        label: Примечание
+
+    condition_device:
+        label: Сост. устр.
+
+    type_job:
+        label: Ист. заказа
+
+    created_at:
+        label: Дата
+        type: datetime
+        format: m-d 
+
+    updated_at:
+        label: Дата изм.

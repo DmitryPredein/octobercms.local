@@ -1,0 +1,47 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+filter: ./config_cash_filter.yaml
+
+# Model List Column configuration
+list: $/predeindmitry/cashbox/models/cashboxhistory/columns.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\Cashbox\Models\CashboxHistory
+
+# List Title
+title: Управление кассой
+
+# Link URL for each record
+recordUrl: predeindmitry/cashbox/cashboxhistory/preview/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 10
+
+# Display page numbers with pagination, disable to improve performance
+showPageNumbers: false
+
+# Displays the list column set up button
+showSetup: false
+
+# Displays the sorting link on each column
+showSorting: false
+
+# Default sorting column
+# defaultSort:
+#     column: created_at
+#     direction: desc
+
+# Display checkboxes next to each record
+showCheckboxes: false
+
+# Toolbar widget configuration
+toolbar:
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt

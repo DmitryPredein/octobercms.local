@@ -1,0 +1,43 @@
+    <?php if ($user->hasAccess('predeindmitry.masterstat.some_permission.admin')): ?>
+            <h3>#MasterName</h3>
+        <?php else: ?>
+            <h3><?= $user['last_name']." ".$user['first_name']?></h3>
+        <?php endif ?>
+        <div class="control-list">
+            <table class="table data">
+                <thead>
+                    <tr>
+                        <th><span>Заголовки</span></th>
+                        <th><span>Кол-во</span></th>
+                        <th><span>Сумма</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Выдано: </td>
+                        <td><?= $test?></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Готовые аппараты:</td>
+                        <td>#0</td>
+                        <td>#0</td>
+                    </tr>
+                    <tr>
+                        <td>Возвраты:</td>
+                        <td>#0</td>
+                        <td>#0</td>
+                    </tr>
+                    <tr>
+                        <td>Штрафы:</td>
+                        <td>-</td>
+                        <td>#0</td>
+                    </tr>
+                    <tr>
+                        <td>Итого:</td>
+                        <td>-</td>
+                        <td>#0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>

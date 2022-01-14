@@ -1,0 +1,12 @@
+<div>
+    <?php
+        if($message){
+            for($i = count($message) - 1; $i >= 0; $i--){
+                echo( "<div class='chat_window'><span><p class='name_style_fonts'><b>".$message[$i][0]."</b></p><p class='data_style_fonts'><i>(".$message[$i][2].")</i>:</p></span> <p class='message_style_fonts'>".$message[$i][1]."</p></div>" );
+            }
+        }
+        else{
+            echo("Сообщений нет");
+        }
+    ?>
+</div>

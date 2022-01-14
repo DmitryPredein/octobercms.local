@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Message Log
+
+# Model Form Field configuration
+form: $/predeindmitry/maincrm/models/messagelog/fields.yaml
+
+# Model Class name
+modelClass: PredeinDmitry\MainCRM\Models\MessageLog
+
+# Default redirect location
+defaultRedirect: predeindmitry/maincrm/messagelog
+
+# Create page
+create:
+    title: Create Message Log
+    redirect: predeindmitry/maincrm/messagelog/update/:id
+    redirectClose: predeindmitry/maincrm/messagelog
+
+# Update page
+update:
+    title: Edit Message Log
+    redirect: predeindmitry/maincrm/messagelog
+    redirectClose: predeindmitry/maincrm/messagelog
+
+# Preview page
+preview:
+    title: Preview Message Log

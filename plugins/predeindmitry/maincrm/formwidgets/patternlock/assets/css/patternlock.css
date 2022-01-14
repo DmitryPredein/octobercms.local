@@ -1,0 +1,52 @@
+.patt-holder{-ms-touch-action:none;background:#3382c0}.patt-wrap{cursor:pointer;position:relative}.patt-wrap li,.patt-wrap ul{list-style:none;margin:0;padding:0}.patt-circ{-moz-box-sizing:border-box;box-sizing:border-box;float:left;position:relative}.patt-circ.hovered{border:3px solid #090}.patt-error .patt-circ.hovered{border:3px solid #ba1b26}.patt-hidden .patt-circ.hovered{border:0}.patt-dots{background:#fff;left:50%;margin-left:-5px;margin-top:-5px;top:50%;width:10px}.patt-dots,.patt-lines{border-radius:5px;height:10px;position:absolute}.patt-lines{-ms-transform-origin:5px 5px;-webkit-transform-origin:5px 5px;background:hsla(0,0%,100%,.7);transform-origin:5px 5px}.patt-hidden .patt-lines{display:none}
+#patternHolder .patt-wrap {
+  z-index: 10;
+}
+#patternHolder .patt-circ.hovered {
+  background-color: #cde2f2;
+  border: none;
+}
+#patternHolder .patt-circ.hovered .patt-dots {
+  display: none;
+}
+#patternHolder .patt-circ.dir {
+  background-image: url('icon-arrow.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#patternHolder .patt-circ.e {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+#patternHolder .patt-circ.s-e {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#patternHolder .patt-circ.s {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#patternHolder .patt-circ.s-w {
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+#patternHolder .patt-circ.w {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#patternHolder .patt-circ.n-w {
+  -webkit-transform: rotate(225deg);
+   transform: rotate(225deg);
+}
+#patternHolder .patt-circ.n {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+#patternHolder .patt-circ.n-e {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.patt-holder{
+  border-radius: 30px;
+}

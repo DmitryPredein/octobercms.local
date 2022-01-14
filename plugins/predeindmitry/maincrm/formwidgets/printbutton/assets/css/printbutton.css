@@ -1,0 +1,64 @@
+                                #printWrite2 {
+                                    margin: 5mm;
+                                }
+                                html, body, #printWrite2 table {
+                                    font-size: 3mm;
+                                }
+                                #printWrite2 .mar_right{
+                                    margin-left: 60mm;
+                                }
+                                #printWrite2 .mar_lf > span, #printWrite2 .mar_lf > input{
+                                    margin-left: 80mm;
+                                }
+                                #printWrite2 .mar_lf{
+                                    margin-left: 27mm;
+                                }
+                                #printWrite2 .h1{
+                                    font-size: 5mm;
+                                }
+                                #printWrite2 .h1_5{
+                                    font-size: 4mm;
+                                }
+                                .smallText{
+                                    line-height: 0.95em;
+                                }
+                                #printWrite2 table {
+                                    border-collapse: collapse;
+                                }
+                                #printWrite2 td, th {
+                                    border: 1px solid #000;
+                                }
+                                
+                                .modal-dialog{
+                                    width: 210mm;
+                                }
+                                #printWrite {
+                                    margin: 5mm;
+                                }
+                                #printWrite .mar_right{
+                                    margin-left: 60mm;
+                                }
+                                #printWrite .mar_lf > span, #printWrite .mar_lf > input{
+                                    margin-left: 80mm;
+                                }
+                                #printWrite .mar_lf{
+                                    margin-left: 27mm;
+                                }
+                                html, body, #printWrite table {
+                                    font-size: 3mm;
+                                }
+                                #printWrite .h1{
+                                    font-size: 5mm;
+                                }
+                                #printWrite .h1_5{
+                                    font-size: 4mm;
+                                }
+                                #printWrite .smallText{
+                                    line-height: 0.95em;
+                                }
+                                #printWrite table {
+                                    border-collapse: collapse;
+                                }
+                                #printWrite td, th {
+                                    border: 1px solid #000;
+                                }

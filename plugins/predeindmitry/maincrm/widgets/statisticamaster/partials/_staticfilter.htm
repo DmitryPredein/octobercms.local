@@ -1,0 +1,111 @@
+                <?php
+                        use PredeinDmitry\MainCRM\Models\Customer;
+                        use PredeinDmitry\MainCRM\Models\Employee;
+                        use PredeinDmitry\MainCRM\Models\Stock;
+                ?>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><?= $nameFilter?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="layauts_filterList">
+                        <?php
+                                foreach($FilterJob as $values){
+                                        $url = "";
+                                        if($values['status_job'] == 'Выдан без ремонта'){
+                                                $url = "jobclosenotremont";
+                                        }
+                                        else if($values['status_job'] != 'Выдан без ремонта' && $values['status_job'] != 'Выдан клиенту' && $values['status_job'] != 'Не обработана'){
+                                                $url = "job";
+                                        }
+                                        else if($values['status_job'] == 'Выдан клиенту' && $values['is_warranty'] == 'Не гарантийный'){
+                                                $url = "jobclosedoneremont";
+                                        }
+                                        else if($values['status_job'] == 'Выдан клиенту' && $values['is_warranty'] == 'Гарантийный'){
+                                                $url = "jobclosegarant";
+                                        }
+                                        else{
+                                                $url = "joblanding";
+                                        }
+                                        $id = $values['id'];
+                                        echo('<a  class="lineJob" href="https://axmobycms.ru/backend/predeindmitry/maincrm/'.$url.'/update/'.$id.'" >');
+                                                echo("<div class='filterItem' style='width: 40px'>");
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("id:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo($id);
+                                                        echo("</div>");
+                                                echo("</div>");        
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("Мастер:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo(Employee::where("id", $values['master_id'])->pluck("name")->first());
+                                                        echo("</div>");
+                                                echo("</div>");
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("Менеджер:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo(Employee::where("id", $values['manager_id'])->pluck("name")->first());
+                                                        echo("</div>");
+                                                echo("</div>");
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("ФИО:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo(Customer::where("id", $values['name_id'])->pluck("name")->first());
+                                                        echo("</div>");
+                                                echo("</div>");
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("Склад:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo(Stock::where("id", $values['stock_id'])->pluck("stock")->first());
+                                                        echo("</div>");
+                                                echo("</div>");
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("Модел:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo($values['brand_device'].": ".$values['devicemodel']);
+                                                        echo("</div>");
+                                                echo("</div>");
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("Ст. заявки:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo($values['status_job']);
+                                                        echo("</div>");
+                                                echo("</div>");
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("Стоимость:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo($values['cost']);
+                                                        echo("</div>");
+                                                echo("</div>");
+                                                echo("<div class='filterItem'>");        
+                                                        echo("<div class='labelFilterItem'><b>");
+                                                        echo("Создана:");
+                                                        echo("</b></div>");
+                                                        echo("<div class='descriptionFilterItem'>");
+                                                        echo($values['created_at']);
+                                                        echo("</div>");  
+                                                echo("</div>");
+                                        echo("</a>");
+                                }
+                        ?>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="print" class="btn btn-primary" data-dismiss="popup">Закрыть</button>
+                    </div>

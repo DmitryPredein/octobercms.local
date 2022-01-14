@@ -1,0 +1,27 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    created_at:
+        label: Дата
+    user:
+        label: Пользователь
+    komment:
+        label: Комментарий
+    nal:
+        label: +Наличные
+    beznal:
+        label: +Безнал
+    return_nal:
+        label: -Возвраты(нал)
+    return_beznal:
+        label: -Возвраты(безнал)
+    expenses:
+        label: -Разходы
+    stock:
+        label: Склад
+    

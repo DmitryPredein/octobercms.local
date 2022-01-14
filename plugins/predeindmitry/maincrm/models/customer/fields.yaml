@@ -1,0 +1,30 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    name:
+        label: ФИО
+        type: text
+        span: full
+        placeholder: Петров Василий Александрович
+        required: true
+    tel:
+        label: Номер телефона
+        type: text
+        span: left
+        placeholder: 89999999999
+        required: true
+    address:
+        label: Адрес
+        type: text
+        span: right
+        placeholder: г Екатеринбург ул Комсомольская д 8
+    mail:
+        label: Почта
+        type: text
+        span: full
+        placeholder: persona@axmobi.ru
