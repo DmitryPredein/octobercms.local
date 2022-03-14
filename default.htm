@@ -3,7 +3,7 @@
     <head>
         <?= $this->makeLayoutPartial('head') ?>
         <?= $this->fireViewEvent('backend.layout.extendHead', ['layout' => 'default.htm']) ?>
-        
+
         <script  type="text/javascript" src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
         <script  type="text/javascript" src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
         <script  type="text/javascript" src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
@@ -72,9 +72,9 @@
 
         <!-- Flash Messages -->
         <div id="layout-flash-messages"><?= $this->makeLayoutPartial('flash_messages') ?></div>
+<!--
 
-    
-        
+
         <script  type="text/javascript">
             //Настройки FCM
             //https://console.firebase.google.com/u/1/
@@ -92,7 +92,7 @@
             const database = firebase.database();
 
             const messaging = firebase.messaging();
-    
+
             //запрос на показ Web-PUSH браузеру
             messaging.requestPermission()
             .then(function() {
@@ -102,7 +102,7 @@
                 .then(function(currentToken) {
                     if (currentToken) {
                         console.log(currentToken);
-                        
+
                         let msg = {
                             "notification": {
                                 "title": "Your Title",
@@ -115,7 +115,7 @@
                                 "dY5-8iZA2BDgeSfrpTjgb6:APA91bHJOaCM6zQcXNUHxkAhsbnSB6gPk4A8eFwAdrEMlCmZZl_-Q2PAPLboZj9veQq9fmV_7Q1Ky8jdYRWGUNZ4e6xhqsOGe8lqrmTakK-CmFkL7bT5ILfPNnHBRyMxhoCx6KItNXma"
                             ]
                         };
-                        
+
                         fetch('https://fcm.googleapis.com/fcm/send', {
                             method: 'POST',
                             headers: {
@@ -139,7 +139,7 @@
             .catch(function(err) {
                 console.log('Unable to get permission to notify.', err);
             });
-    
+
             /*
             //обновление токена
             messaging.onTokenRefresh(function() {
@@ -152,7 +152,7 @@
                     showToken('Unable to retrieve refreshed token ', err);
                 });
             }) */
-    
+
             //окно sw
             messaging.onMessage(function(payload) {
                 console.log('Message received. ', payload);
@@ -176,15 +176,15 @@
                     token: currentToken,
                 });
             }
-            
+
             function sendNotification() {
-                
+
                 var a = firebase.database().ref('user/token/');
                 console.log(firebase.database().ref('axmobypush/user/token/'));
-                
+
                 messaging.getToken()
                     .then(function(currentToken) {
-                        
+
                         let msg = {
                             "notification": {
                                 "title": "Your Title",
@@ -197,7 +197,7 @@
                                 "dY5-8iZA2BDgeSfrpTjgb6:APA91bHJOaCM6zQcXNUHxkAhsbnSB6gPk4A8eFwAdrEMlCmZZl_-Q2PAPLboZj9veQq9fmV_7Q1Ky8jdYRWGUNZ4e6xhqsOGe8lqrmTakK-CmFkL7bT5ILfPNnHBRyMxhoCx6KItNXma"
                             ]
                         };
-                        
+
                         fetch('https://fcm.googleapis.com/fcm/send', {
                             method: 'POST',
                             headers: {
@@ -213,6 +213,6 @@
                         console.log('Error retrieving Instance ID token', error);
                     });
             }
-		</script>
+		</script> -->
     </body>
 </html>
